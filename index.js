@@ -72,12 +72,12 @@ function spaceStation() {
 };
 
 function graveyard() {
-  console.log('Here is a ship graveyard for space ships.');
+  console.log('Here is a graveyard for space ships.');
   // Rückgabewert --> was passiert? 
 };
 
 function pirate() {
-  console.log('Here are Pirates.');
+  console.log('Here are pirates.');
   // Rückgabewert --> was passiert? 
 };
 
