@@ -8,3 +8,17 @@ class Ressourcen {
         return this.quantity + v
     }
 }
+
+
+/*
+Essen
+Wasser
+Mineralien
+Medikament
+Metale
+Energie
+Schiffteile
+Crew
+Sauerstoff
+Besondere Technologie
+*/

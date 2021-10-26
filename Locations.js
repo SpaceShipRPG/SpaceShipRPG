@@ -2,52 +2,10 @@
     return Math.floor(Math.random() * 10)
 } */
 
-class Location extends Ressourcen {
-    constructor(name) {
-        super (name, quantity)
-    }
 
-    buyFood() {
-        food + 1
-        money - 1
-    }
-    buyWater() {
-        water + 1
-        money - 1
-    }
-    buyEnergie() {
-        energy + 1
-        money - 1
-    }
-    buyDrugs() {
-        drugs + 1
-        money - 1
-    }
-    buyShipParts() {
-        shipParts + 1
-        money - 1
-    }
-    sellMineral() {
-        minerals - 1
-        money + 1
-    }
-    sellMetal() {
-        metal - 1
-        money + 1
-    }
-    sellGas() {
-        gas - 1
-        money + 1
-    }
-    sellSpecialTech() {
-        specialTech - 1
-        money + 1
-    }
-    oxigen(){
-        oxigen === full
-    }
-    recruit(){
-        crew + 1
+class Location {
+    constructor(name) {
+        this.name = name
     }
 }
 
@@ -61,3 +19,16 @@ const worm = new Location('worm')
 const star = new Location('star')
 const spaceHulk = new Location('space hulk')
 const pirates = new Location('pirates')
+
+/*
+console.log(planetA)
+console.log(planetB)
+console.log(planetC)
+console.log(spaceStation)
+console.log(asteroid)
+console.log(fog)
+console.log(worm)
+console.log(star)
+console.log(spaceHulk)
+console.log(pirates)
+*/

@@ -4,3 +4,5 @@ class Subsystems {
         this.quantity = quantity
     }
 }
+
+//motor, shield, weapon, lifeSupport//
