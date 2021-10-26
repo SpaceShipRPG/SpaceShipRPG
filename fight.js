@@ -54,6 +54,8 @@ function boardingAction () {
 
 
 
+// Vielleicht Ausgabe der einzelnen Runden von Kämpfen (Schiffe oder Boarding) mit setTimeout(meineFunktion, 500); jeweils um eine halbe Sekunde verzögern, damit es spannender wird und nicht direkt das Endergebniss angezeigt wird.
+
 
 
 
