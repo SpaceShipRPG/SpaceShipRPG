@@ -116,14 +116,4 @@ const staticMap = [
   }
 ]
 
-const meineBewegung = [8,8];
-const meineBewegungX = meineBewegung[0];
-const meineBewegungY = meineBewegung[1];
-
-const laenge = staticMap.length;
-
-for (let elem of staticMap) {
-  if (elem.x === meineBewegungX && elem.y === meineBewegungY) {
-    console.log(`${elem.name} ist im Weg.`);
-  }
-}
+module.exports = staticMap;
