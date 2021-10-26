@@ -24,6 +24,7 @@ const staticMap = [
 ];
 
 
+
 // - = Void / Emptiness / Nothing
 // S = Ship Graveyard
 // P = Planet
@@ -106,3 +107,21 @@ function pickUp(params) {
 
 function delivery(params) {
 };
+
+
+
+const newMap = [
+  {
+    name : 'sonne',
+    x : 21,
+    y : 1
+  }
+]
+
+
+
+class mapObject {
+  constructor (name, x, y)
+}
+
+const stern = new mapObject('stern', 21, 1)
