@@ -44,7 +44,10 @@ const meineBewegungX = meineBewegung[0];
 const meineBewegungY = meineBewegung[1];
 
 let clash = false;
-
+if (meineBewegungX < 1 || meineBewegungX > 21 || meineBewegungY < 1 || meineBewegungY > 21) {
+    console.log('The edge of the world is reached. Find another way!');
+    return;
+}
 for (let elem of staticMap) {
     if (elem.x === meineBewegungX && elem.y === meineBewegungY) {
       console.log(`${elem.name} is in the way. The coordinates of your current position are x: ${shipPosition[0]}, y: ${shipPosition[1]}.`);
