@@ -1,4 +1,4 @@
-const staticMap = [  
+/* const staticMap = [  
     "--------------------S", //0 (Starting map!)
     "---------------------", //1
     "---------------------", //2
@@ -21,8 +21,7 @@ const staticMap = [
     "---------------------", //19
     "-----------------P---", //20
     "B--------------------", //21
-];
-
+]; */
 
 // - = Void / Emptiness / Nothing
 // S = Ship Graveyard
@@ -35,10 +34,13 @@ const staticMap = [
 // O = Sun
 // B = Black Hole
 
+function currentPosition(params) {
+  const cP = shipPosition;
+  console.log(cP);
+};
 
-function void() {
+function emptySpace() {
     console.log('Here is only void space.');
-    // Rückgabewert --> was passiert? 
 };
 
 function sun() {
