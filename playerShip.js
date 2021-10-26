@@ -94,3 +94,5 @@ function sell (thing, quantity, cash) {
 function recruit (v) {
 
     playerShip.crew += v
+
+}

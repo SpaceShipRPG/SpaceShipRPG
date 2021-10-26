@@ -1,3 +1,6 @@
+// Schiff
+
+// parameter zu erklären / erweitern : [volk, Frachtraum, Shuttelrampe{Shuttle1, ...}
 
 class Ship {
     constructor(name, crew, subsysteme, ressourcen) {
