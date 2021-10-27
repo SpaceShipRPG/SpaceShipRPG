@@ -3,9 +3,10 @@ function sell() {
 
     console.log('Do you wanna sell something?')
 
+    let option;
     //Ideal wäre hier ein while loop schreiben < solange o === 'y' >; der Spiele würde den Wert von o am Enden der (if) ändern, wenn er 'n' auswählt
 
-    if(o === 'y') {
+    if(option === 'y') {
         console.log('what do you wannt to sell?')
         console.log('* Minerals: a')
         console.log('* Metals: b')

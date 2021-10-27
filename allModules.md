@@ -15,7 +15,7 @@
 
 * inform: gives the player the option to know the ship's stats
 * movement: to explore the space
-* mine: to get ressources in the space (empty)
+* mine: to get ressources in the space ()
 * danger: bad things happen when you gather  ressources. Watch yourself (empty)
 * fight: combat with pirates
 * MaintainanceCost: jeder Runde - ( Oxigen, Wasser, Essen )

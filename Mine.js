@@ -1,19 +1,21 @@
 // System für Minen
 function getRessources (type){
 
-    const q = playerShip.crew * (Math.floor(Math.random))
+    const q = playerShip.crew * (Math.random() + 1)
 
     let t;
 
-    if(type === 'asteroidenFeld')
+    if(type === 'asteroidenFeld'){
         t =  (Math.floor(Math.random) * 4)
     } else if(type === 'Nebel'){
-        t = 1
+        t = 4
     } else if(type === 'Stern') {
-        t = 2
+        t = 5
     } else if(type === 'schiffsfriedhof') {
         t = 'specialTechnology'
     }
+    
+    //aufrunden
 
     if(t === 1) {
         playerShip.playerRessourcen.water += q
@@ -28,4 +30,5 @@ function getRessources (type){
     }else if(t === 6) {
         playerShip.playerRessourcen.specialTech += q
     }
+
 }

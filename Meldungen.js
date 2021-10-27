@@ -39,9 +39,7 @@ const star = new Location('star')
 const spaceHulk = new Location('space hulk')
 const pirates = new Location('pirates')
 
-/*
 
-// 
 
 function locationInteraction (place) {
 
@@ -53,20 +51,20 @@ function locationInteraction (place) {
     if (place === planetA || place === planetB || place === planetC){
         
         recruit()
-        breath()
-        buy()
         sell()
-        
+        buy()
     }
     
     if(place === planet A) {
 
         //Taste für sell Metale nicht verfügbar machen
     }  
+
     if(place === planet B) {
 
         //Taste für sell Mineralien nicht verfügbar machen
     }  
+
     if(place === planet C) {
 
         //Taste für sell Gas nicht verfügbar machen
