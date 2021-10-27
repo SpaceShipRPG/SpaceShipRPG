@@ -1,3 +1,7 @@
 function inform() {
-    console.log(playerShip)
+    console.log(`crew: ${playerShip.crew}`)
+    console.log(playerShip.playerRessourcen)
+    console.log(playerShip.playerSubsystems)
 }
+
+inform()

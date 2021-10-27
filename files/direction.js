@@ -1,4 +1,4 @@
-const staticMap = require('./map.js');
+const staticMap = require('./Map.js');
 const prompt = require('prompt-sync')();
 
 

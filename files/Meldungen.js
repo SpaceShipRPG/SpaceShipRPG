@@ -55,21 +55,10 @@ function locationInteraction (place) {
         buy()
     }
     
-    if(place === planet A) {
-
-        //Taste für sell Metale nicht verfügbar machen
-    }  
-
-    if(place === planet B) {
-
-        //Taste für sell Mineralien nicht verfügbar machen
-    }  
-
-    if(place === planet C) {
-
-        //Taste für sell Gas nicht verfügbar machen
-    }  
-
+    if(place === spaceStation) {
+        sell('spaceStation')  // mit variable für kleinerer Ein- und Verkauf
+        buy('spaceStation')   // mit variable für kleinerer Ein- und Verkauf
+    }
 
     if(place === asteroidenFeld) {
         mine('asteroidenFeld')
