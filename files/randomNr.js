@@ -11,3 +11,5 @@ function randomNr(min, max, decimalPlaces = 0) {
     }
 };
 // console.log(randomNr(0.5, 2.5, 1));
+
+module.exports = randomNr();
