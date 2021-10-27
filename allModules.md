@@ -1,15 +1,15 @@
 # Mother Of Files
 
-main.js
-index.js
+* main.js
+* index.js
 
 ## aktuel Dateien
 
-Location.js
-PlayerShip.js
-PirateShip.js
-Ressources.js => class
-Subsystems.js => class
+* Location.js
+* PlayerShip.js
+* PirateShip.js
+* Ressources.js => class
+* Subsystems.js => class
 
 ## Adventures
 
@@ -18,12 +18,13 @@ Subsystems.js => class
 * mine: to get ressources in the space (empty)
 * danger: bad things happen when you gather  ressources. Watch yourself (empty)
 * fight: combat with pirates
+* MaintainanceCost: jeder Runde - ( Oxigen, Wasser, Essen )
 
 ## When you arrive to the planet
 
-Meldungen : messages from the place you arrived to (pseudo-code)
-AutomaticPlanetEvents: refill air and recruit crew
-Comerce: trade goods
+* Meldungen : messages from the place you arrived to (pseudo-code)
+* AutomaticPlanetEvents: refill air and recruit crew
+* Comerce: trade goods
 
 
 
