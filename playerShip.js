@@ -63,6 +63,7 @@ const playerShip = {
         drugs       : undefined,
         metal       : undefined,
         energy      : undefined,
+        specialTech : undefined,
         money       : 20
     },
 
