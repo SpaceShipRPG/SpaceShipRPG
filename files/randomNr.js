@@ -1,17 +1,13 @@
-function randomNr(minimum, maximum, kommastellen = 0) {
-    result = Math.random() * maximum;
-    // console.log("Zufallszahl = ", result);
-    if (kommastellen === 0) {
-        result = Math.round(result);
-        return (result < minimum ? minimum : result);
+function randomNr(min, max, decimalPlaces = 0) {
+    if (decimalPlaces === 0) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     } else {
-        let multiplikator = "1";
-        for (i = 0; i < kommastellen; i++) {
-            multiplikator += "0";
+        let multiplier = "1";
+        for (i = 0; i < decimalPlaces; i++) {
+            multiplier += "0";
         };
-        multiplikator = Number(multiplikator);
-        result = (Math.round(result * multiplikator) / multiplikator);
-        return (result < minimum ? minimum : result);
+        multiplier = Number(multiplier);
+        return Math.floor(Math.random() * ((max - min) * multiplier + 1) + min * multiplier) / multiplier;
     }
 };
-// console.log(randomNr(5, 8))
+// console.log(randomNr(0.5, 2.5, 1));
