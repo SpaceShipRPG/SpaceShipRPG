@@ -1,4 +1,3 @@
-
 function sell(what, quantity) {
     PlayerShip.getMoney = quantity
 
