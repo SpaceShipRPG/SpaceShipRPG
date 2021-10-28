@@ -1,21 +1,26 @@
 const staticMap = [
   {
-    name: 'Planet',
+    name: 'Home',
+    x: 11,
+    y: 11
+  },
+  {
+    name: 'Vulkan',
     x: 6,
     y: 5,
   },
   {
-    name: 'Planet',
+    name: 'Kronos',
     x: 14,
     y: 7,
   },
   {
-    name: 'Planet',
+    name: 'Minerva',
     x: 18,
     y: 20,
   },
   {
-    name: 'Stern',
+    name: 'Star',
     x: 8,
     y: 15,
   },
@@ -50,42 +55,42 @@ const staticMap = [
     y: 8,
   },
   {
-    name: 'Nebel',
+    name: 'Nebula',
     x: 11,
     y: 8,
   },
   {
-    name: 'Nebel',
+    name: 'Nebula',
     x: 12,
     y: 9,
   },
   {
-    name: 'Nebel',
+    name: 'Nebula',
     x: 19,
     y: 10,
   },
   {
-    name: 'Raumstation',
+    name: 'Space Station',
     x: 1,
     y: 10,
   },
   {
-    name: 'Raumstation',
+    name: 'Space Station',
     x: 10,
     y: 5,
   },
   {
-    name: 'Raumstation',
+    name: 'Space Station',
     x: 16,
     y: 13,
   },
   {
-    name: 'graveyard',
+    name: 'Graveyard',
     x: 21,
     y: 1,
   },
   {
-    name: 'graveyard',
+    name: 'Graveyard',
     x: 15,
     y: 18,
   },

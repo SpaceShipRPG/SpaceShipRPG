@@ -17,7 +17,7 @@ leer / pseudo / WIP / fertig / getested
 
 ## Actions
 
-* direction                 fertig(?)
+* direction                 fast fertig --> Die Methoden/Funktionen (sell, buy, ...) müssen noch eingebunden werden.
 * inform                    getested
 * mine                      WIP (Konfikte mit PlayerShip Methoden)
 * danger                    noch nicht angefangen

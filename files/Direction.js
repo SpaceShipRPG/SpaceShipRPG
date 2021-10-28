@@ -1,4 +1,6 @@
+const chalk = require('chalk');
 const staticMap = require('./map.js');
+const wurmloch = require('./Wurmloch.js');
 const prompt = require('prompt-sync')();
 
 let shipPosition = [1, 20];
@@ -6,7 +8,7 @@ let shipPosition = [1, 20];
 
 function play() {
     
-    console.log(shipPosition);
+    console.log(chalk.bold.red.bgYellow(`Your current position is [x: ${shipPosition[0]} , y: ${shipPosition[1]}]`));
     function movement (order) {
         const newPosition = [];
         if(order === 8) {
@@ -21,7 +23,7 @@ function play() {
         } else if(order === 6) {
             newPosition.push(shipPosition[0]+1, shipPosition[1])
         } else if (order === 5) {
-            console.log('see you next time!');
+            console.log(chalk.red('see you next time!'));
             gameState.stopPlaying();
             return;
         } else {
@@ -40,7 +42,7 @@ function play() {
         return newPosition;
     }
     /* function checkPosition() { */
-        console.log('Your move:');
+        console.log(chalk.cyan.italic('Your move:'));
         let meineBewegung = movement(Number(prompt('')));
         let meineBewegungX;
         let meineBewegungY;
@@ -141,14 +143,10 @@ function play() {
             }
             if (elem.name === 'Wormhole') {
                 messagePlanet(elem.name);
-                const inputUser = input();
-                if (inputUser === 1) {
-                    wurmloch();
-                } else if (inputUser === 2) {
-                    return;
-                } else {
-                    console.log('Please enter a number between 1 and 2');
-                }
+                const wormHoleRandom = wurmloch();
+                shipPosition[0] = x[0];
+                shipPosition[1] = x[1];
+                console.log(shipPosition);
             }
             clash = true; 
             }
@@ -200,9 +198,7 @@ function play() {
                 console.log(`\
                 ******************************************\r\n\
                 *** Welcome to ${params}.                 \r\n\
-                *** You have the following options:       \r\n\
-                ***     Press 1 to take a short cut.      \r\n\
-                ***     Press 2 to continue your journey  \r\n\
+                ***     You are taking a short cut.       \r\n\
                 ***             D A N G E R!              \r\n\
                 ******************************************\r\n\
                 `);
@@ -253,3 +249,5 @@ const gameState = {
 while (gameState.isPlaying) {
     play();
 }
+
+/* module.export = shipPosition; */
