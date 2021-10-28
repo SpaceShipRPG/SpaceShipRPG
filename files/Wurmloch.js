@@ -1,21 +1,10 @@
-let shipPosition = [1, 1]
-
+const randomNr = require('./randomNr.js')
 function wurmloch (){
         
-    x = Math.floor(Math.random() * 20)
-    y = Math.floor(Math.random() * 20)
+    x = randomNr(1,21);
+    y = randomNr(1,21);
     
-    if(x === 0) {
-        x === 11
-    }
-    if(y === 0) {
-        y === 11
-    }
-
-    shipPosition.shift()
-    shipPosition.shift()
-    shipPosition.unshift(y)
-    shipPosition.unshift(x)
+    return [x,y];
 }
-wurmloch()
-console.log(shipPosition)
+
+module.exports = wurmloch;
