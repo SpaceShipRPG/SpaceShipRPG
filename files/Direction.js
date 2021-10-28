@@ -144,8 +144,8 @@ function play() {
             if (elem.name === 'Wormhole') {
                 messagePlanet(elem.name);
                 const wormHoleRandom = wurmloch();
-                shipPosition[0] = x[0];
-                shipPosition[1] = x[1];
+                shipPosition[0] = wormHoleRandom[0];
+                shipPosition[1] = wormHoleRandom[1];
                 console.log(shipPosition);
             }
             clash = true; 

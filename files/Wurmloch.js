@@ -1,7 +1,8 @@
+const randomNr = require('./randomNr.js')
 function wurmloch (){
         
-    x = Math.floor(Math.random() * 20)
-    y = Math.floor(Math.random() * 20)
+    x = randomNr(1,21);
+    y = randomNr(1,21);
     
     return [x,y];
 }
