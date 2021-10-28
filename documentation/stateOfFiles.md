@@ -1,35 +1,34 @@
-/// ES GIBT FRAGEN AM ENDE
-
 leer / pseudo / WIP / fertig / getested
 
 # Mother Of Files
 
 * main.js                   WIP
 
+## Classes 
+
+* Ressources.js => class    (getested)
+* Subsystems.js => class    (getested)
+
 ## Static Files
 
-* PlayerShip.js             WIP (fehlen: Werte, Methoden Problemen)
-* PirateShip.js             WIP (fehlen: Werte)
-* Ressources.js => class    getested
-* Subsystems.js => class    getested
+* PlayerShip.js             fertig
+* PirateShip.js             fertig
 * Location.js               nutzen / brauchen wir eigentlich dieses Datei?
 * Map.js                    getested
 
 ## Actions
 
-* direction                 fast fertig --> Die Methoden/Funktionen (sell, buy, ...) müssen noch eingebunden werden.
-* inform                    getested
-* mine                      WIP (Konfikte mit PlayerShip Methoden)
-* danger                    noch nicht angefangen
-* fight                     fertig(?)
-* MaintainanceCost          WIP (es sollte als Methoden in PlayerShip eingefügt werden und von Direction gerufen)
+* direction                 getested
 * Wurmloch                  getested
+* MaintainanceCost          getested
+* inform                    getested
+* danger                    getested // randomFunction muss aktualisiert werden
+* Meldungen                 getested
+    
+    ** mine                 getested // es muss mit randomFunction verbunden sein
+    ** Comerce              getested // es muss mit randomFunction verbunden sein
 
-## When you arrive to the planet
-
-* Meldungen                 WIP (konflikt mit Direction: wer gibt die Meldungen und übernimmt die Spielentscheidungen?)
-* Comerce                   WIP (konflikt zwischen diese Funktionen und die Methoden in PlayerShip)
-
+* fight                     fertig(?)
 
 
 ### alteDateien (nicht mehr oder momentan nicht verwendet)
@@ -39,5 +38,3 @@ leer / pseudo / WIP / fertig / getested
 * index.js => jetzt als main.js
 * movement: to explore the space => von direction.js übernommen
 * AutomaticPlanetEvents: refill air and recruit crew => als Methode in PlayerShip eingefügt
-
-PlayerShip oxygen method
