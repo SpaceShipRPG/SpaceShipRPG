@@ -1,34 +1,82 @@
-
-//OBJECT FORM
-
-const playerShip = {
-
+const PlayerShip = {
+    
     name            : 'playerShip',
     crew            : 20,
-
+    
     playerRessourcen : {
-        food        : undefined,
-        water       : undefined,
-        oxygen      : undefined,
-        minerals    : undefined,
-        drugs       : undefined,
-        metal       : undefined,
-        energy      : undefined,
-        specialTech : undefined,
-        money       : 20
-    },
-
-    playerSubsystems : {
-        engine      : undefined,
-        hull        : undefined,
-        weapons     : undefined,
-        lifeSupport : undefined,
-        shield      : undefined
+        food        : 20,
+        water       : 20,
+        oxygen      : 20,
+        minerals    : 20,
+        drugs       : 20,
+        metal       : 20,
+        energy      : 20,
+        specialTech : 20,
+        money       : 20,
+        shipParts   : 20
     },
     
-    breath (){
-        playerShip.playerRessourcen.oxygen = playerShip.playerRessourcen.maxOxygen
+    playerSubsystems : {
+        engine      : 20,
+        hull        : 20,
+        weapons     : 20,
+        lifeSupport : 20,
+        shield      : 20
     },
+
+    set getMoney(money) {
+        this.playerRessourcen.money += money
+    },
+    set sellMineral(good) {
+        this.playerRessourcen.mineral -= quantity
+    },
+    set sellMetal (good) {
+        this.playerRessourcen.metal -= quantity
+    },
+    set sellGas (good) {
+        this.playerRessourcen.gas -= quantity
+    },
+    set sellTech(good) {
+        this.playerRessourcen.tech -= quantity
+    },
+
+    // buy methods
+
+    set investMoney(money) {
+        this.playerRessourcen.money -= money
+    },
+    set buyWater(good) {
+        this.playerRessourcen.water += quantity 
+    },
+    set buyFood(good) {
+        this.playerRessourcen.food += quantity
+    },
+    set buyDrugs(good) {
+        this.playerRessourcen.drugs += quantity
+    },
+    set buyEnergy(good) {
+        this.playerRessourcen.energy += quantity
+    },
+    set buyShipParts(good) {
+        this.playerRessourcen.shipParts += quantity
+    },
+    // mine methods
+    set mineWater(quantity) {
+        this.playerRessourcen.water += crew
+    },
+    set mineMineral(quantity) {
+        this.playerRessourcen.mineral += crew
+    },
+    set mineMetal(quantity) {
+        this.playerRessourcen.metal += crew
+    },
+    set mineGas(quantity) {
+        this.playerRessourcen.gas += crew
+    },
+    set mineEnergy(quantity) {
+        this.playerRessourcen.energy += crew
+    }
+}
 =======
 /* class Ressourcen {
     constructor (name, quantity){

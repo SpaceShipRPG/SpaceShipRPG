@@ -8,8 +8,8 @@ leer / pseudo / WIP / fertig / getested
 
 ## Static Files
 
-* PlayerShip.js             WIP (fehlen: Werte, Methoden Problemen)
-* PirateShip.js             WIP (fehlen: Werte)
+* PlayerShip.js             fertig
+* PirateShip.js             fertig
 * Ressources.js => class    getested
 * Subsystems.js => class    getested
 * Location.js               nutzen / brauchen wir eigentlich dieses Datei?
@@ -17,10 +17,10 @@ leer / pseudo / WIP / fertig / getested
 
 ## Actions
 
-* direction                 fertig(?)
+* direction                 getested
 * inform                    getested
 * mine                      WIP (Konfikte mit PlayerShip Methoden)
-* danger                    noch nicht angefangen
+* danger                    getested
 * fight                     fertig(?)
 * MaintainanceCost          WIP (es sollte als Methoden in PlayerShip eingefügt werden und von Direction gerufen)
 * Wurmloch                  getested
