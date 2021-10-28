@@ -3,5 +3,3 @@ function inform() {
     console.log(playerShip.playerRessourcen)
     console.log(playerShip.playerSubsystems)
 }
-
-inform()

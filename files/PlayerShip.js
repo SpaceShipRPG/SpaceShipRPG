@@ -24,6 +24,14 @@ const PlayerShip = {
         shield      : 20
     },
 
+    // maintainance method
+
+    set maintainance(people) {
+        this.playerRessourcen.oxygen -= crewv
+        this.playerRessourcen.water -= crew
+        this.playerRessourcen.food -= crew
+    }
+
     set getMoney(money) {
         this.playerRessourcen.money += money
     },
@@ -60,7 +68,9 @@ const PlayerShip = {
     set buyShipParts(good) {
         this.playerRessourcen.shipParts += quantity
     },
+
     // mine methods
+    
     set mineWater(quantity) {
         this.playerRessourcen.water += crew
     },
