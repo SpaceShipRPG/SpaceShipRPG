@@ -33,8 +33,8 @@ leer / pseudo / WIP / fertig / getested
 
 ### alteDateien (nicht mehr oder momentan nicht verwendet)
 
-* Ship.js => class um mehreren Schiffe aufzubauen
-* Crew.js => falls wir Spezialisten haben
-* index.js => jetzt als main.js
-* movement: to explore the space => von direction.js übernommen
-* AutomaticPlanetEvents: refill air and recruit crew => als Methode in PlayerShip eingefügt
+* Ship.js => class um mehreren Schiffe aufzubauen (löschen)
+* Crew.js => falls wir Spezialisten haben wollen
+* index.js => jetzt als main.js (löschen)
+* movement: to explore the space => von direction.js übernommen (löschen)
+* AutomaticPlanetEvents: refill air and recruit crew => als Methode in PlayerShip eingefügt (löschen)
