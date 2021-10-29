@@ -1,5 +1,5 @@
 function inform() {
     console.log(`crew: ${playerShip.crew}`)
-    console.log(playerShip.playerRessourcen)
-    console.log(playerShip.playerSubsystems)
+    console.log(playerShip.resources)
+    console.log(playerShip.resources)
 }

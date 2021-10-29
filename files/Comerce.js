@@ -4,26 +4,26 @@ function sell(what, quantity) {
 
     switch (what) {
         case 'mineral':
-            if (quantity > this.playerRessourcen.mineral) {
-                quantity === this.playerRessourcen.mineral
+            if (quantity > this.resources.mineral) {
+                quantity === this.resources.mineral
             }
             PlayerShip.sellMineral = quantity
             break;
         case 'metal':
-            if (quantity > this.playerRessourcen.metal) {
-                quantity === this.playerRessourcen.metal
+            if (quantity > this.resources.metal) {
+                quantity === this.resources.metal
             }
             PlayerShip.sellMetal = quantity
             break;
         case 'gas':
-            if (quantity > this.playerRessourcen.gas) {
-                quantity === this.playerRessourcen.gas
+            if (quantity > this.resources.gas) {
+                quantity === this.resources.gas
             }
             PlayerShip.sellGas = quantity
             break;
         case 'tech':
-            if (quantity > this.playerRessourcen.tech) {
-                quantity === this.playerRessourcen.tech
+            if (quantity > this.resources.tech) {
+                quantity === this.resources.tech
             }
             PlayerShip.sellTech = quantity
             break;
@@ -33,7 +33,7 @@ function sell(what, quantity) {
 function buy (what, quantity) {
     
     PlayerShip.investMoney = quantity
-    if (quantity > this.playerRessourcen.money) {
+    if (quantity > this.resources.money) {
         quantity === money
     }
 
