@@ -4,6 +4,7 @@ const wurmloch = require('./Wurmloch.js');
 const commerce = require('./Comerce.js');
 const prompt = require('prompt-sync')();
 
+
 let shipPosition = [5, 5];
 // playerShip.name = prompt('Please enter your ship name:    ');
 
@@ -104,19 +105,19 @@ function play() {
                     const buyOption = input();
                     if (buyOption === 1) {
                         const howMuch = input(`How much water do you want to buy?`);
-                        commerce.buy('water', Number(howMuch))
+                        commerce.buy('water', howMuch)
                     } else if (buyOption === 2) {
                         const howMuch = input(`How much food do you want to buy?`);
-                        commerce.buy('food', Number(howMuch))
+                        commerce.buy('food', howMuch)
                     } else if (buyOption === 3) {
                         const howMuch = input(`How much medicine do you want to buy?`);
-                        commerce.buy('drugs', Number(howMuch))
+                        commerce.buy('drugs', howMuch)
                     } else if (buyOption === 4) {
                         const howMuch = input(`How much energy do you want to buy?`);
-                        commerce.buy('energy', Number(howMuch))
+                        commerce.buy('energy', howMuch)
                     } else if (buyOption === 5) {
                         const howMuch = input(`How much spare parts do you want to buy?`);
-                        commerce.buy('shipParts', Number(howMuch))
+                        commerce.buy('shipParts', howMuch)
                     } else {
                         gameState.stopPlaying();
                         return;

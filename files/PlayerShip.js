@@ -48,19 +48,19 @@ class Ship {
     set investMoney(money) {
         this.resources.money -= money
     }
-    set buyWater(good) {
+    set buyWater(quantity) {
         this.resources.water += quantity 
     }
-    set buyFood(good) {
+    set buyFood(quantity) {
         this.resources.food += quantity
     }
-    set buyDrugs(good) {
+    set buyDrugs(quantity) {
         this.resources.drugs += quantity
     }
-    set buyEnergy(good) {
+    set buyEnergy(quantity) {
         this.resources.energy += quantity
     }
-    set buyShipParts(good) {
+    set buyShipParts(quantity) {
         this.resources.shipParts += quantity
     }
 
