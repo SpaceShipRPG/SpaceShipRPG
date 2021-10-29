@@ -1,14 +1,23 @@
 // Achtung nur Pseudo-Code für Planung und Brainstorming
 
+const randomNr = require("./randomNr");
 
-function shipAttack(enemy, weaponStrength) {
-    if (enemy.shield > 0) {
-        enemy.shield -= weaponStrength * randomDamageStrength() * randomHitChance();
+
+function shipAttack(enemy, weapon) {
+    if (enemy.subsystems.shield > 0) {
+        enemy.subsystems.shield -= weaponStrength * randomDamageStrength() * randomHitChance();
         console.log(`${enemy.name} shields are now at (${enemy.shield})`)
     } else {
         randomShipDamage(enemy, weaponStrength);
     }   
 };
+
+// Erster Schritt: Trifft man oder nicht: (Entscheidungstabelle)
+this.subsystems.laser.accuracy * this.subsystems.laser.rateOfFire - enemy.subsystems.engine * randomNr(0.8, 1.2, 1);
+
+// Wenn ja: Schaden ermitteln:
+// Schilde noch oben? > Dann Schaden an den Schilden. Falls nicht, dann Schaden am Schiff. (Zufall welches System/e?)
+
 
 
 function randomDamageStrength () {
