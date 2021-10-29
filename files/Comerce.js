@@ -1,3 +1,4 @@
+const playerShip = require('./PlayerShip.js');
 function sell(what, quantity) {
 
     PlayerShip.getMoney = quantity
@@ -55,3 +56,6 @@ function buy (what, quantity) {
             break;
     }
 }
+
+exports.sell = sell;
+exports.buy = buy;
