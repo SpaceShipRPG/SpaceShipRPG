@@ -85,7 +85,17 @@ const PlayerShip = {
     },
     set mineEnergy(quantity) {
         this.playerRessourcen.energy += crew
+    },
+
+    // repair method
+
+    set repairShip(work) {
+        this.Subsystems.hull += work
+    },
+    set repairShield(work) {
+        this.Subsystems.shield += work
     }
+
 }
 
 /* class Ressourcen {
