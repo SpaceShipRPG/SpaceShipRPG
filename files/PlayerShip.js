@@ -87,7 +87,7 @@ const PlayerShip = {
         this.playerRessourcen.energy += crew
     }
 }
-=======
+
 /* class Ressourcen {
     constructor (name, quantity){
         this.name = name,
@@ -149,7 +149,7 @@ class Ship {
         this.subsystems = subsystems
     }
 };
-
+//  >>>> Crew als neue Klasse, nicht nur Zahl? Mit Eigenschaften wie Größe, Moral (sinkt wenn Leute sterben >> Wahrscheinlichkeit für Meuterei steigt...). Später vielleicht: Rasse (unterschiedliche Boni und Mali), ChefIngenier : true gibt Bonus bei Reperatur, weitere wichtige CrewMitglieder etc....
 
 class Resources {
     constructor (food = 0, water = 0, oxygen = 0, minerals = 0, drugs = 0, metal = 0, energy = 0, specialTech = 0, credits = 0) {
@@ -178,42 +178,62 @@ class Subsystems {
 };
 
 class Weapons {
-    constructor (name, dmg, accuracy, rateOfFire, critChance) {
+    constructor (name, dmg, accuracy, rateOfFire, critChance, weaponHP) {
         this.name = name
         this.dmg = dmg
         this.accuracy = accuracy
         this.rateOfFire = rateOfFire
         this.critChance = critChance
+        this.weaponHP = weaponHP
     }
 };
 
+// Variablen, die die Start- und Maximal-Werte des Spieler Schiffes speichern. Diese werden genutzt, um zu checken ob Selbst- und Fremd-Reparatur möglich ist und wann diese gestoppt wird. (Damit Reperatur nicht unendlich läuft und man nach Reperatur auf einmal mehr Engine Punkte etc hat als am Start.)
+
+const playerMaxEngine = 100;
+const playerMaxHull = 125;
+const playerMaxLifeSupport = 90;
+const playerMaxShield = 150;
+const playerMaxLaserHP = 50;
+const playerMaxTorpedoHP = 50;
+
+
+
+const laser = new Weapons ("Laser", 5, 8, 4, 2, 50, playerMaxLaserHP);
+const torpedos = new Weapons ("Torpedos", 20, 3, 1, 9, 50, playerMaxTorpedoHP);
 
 const playerStartResources = new Resources (100, 80, 100, 0, 5, 0, 60, 0, 15);
-const laser = new Weapons ("Laser", 5, 8, 4, 2);
-const torpedos = new Weapons ("Torpedos", 20, 3, 1, 9)
-const playerSubsystems = new Subsystems (100, 125, 90, 150, laser, torpedos);
+
+const playerSubsystems = new Subsystems (playerMaxEngine, playerMaxHull, playerMaxLifeSupport, playerMaxShield, laser, torpedos);
 const playerShip = new Ship ("playerShip", 200, playerStartResources, playerSubsystems);
 
 console.log(playerShip);
 
 const pirateResources = new Resources ();
 
-const pirateSubsystems01 = new Subsystems (70, 80, 60, 70, laser, torpedos);
-const pirateShip01 = new Ship ("Pirates of the Solar System", 150, pirateResources, pirateSubsystems01);
+const pirateSubsystems01 = new Subsystems (randomNr(80, 95), randomNr(80, 100), randomNr(70, 90), randomNr(75, 90), laser, torpedos);
+const pirateShip01 = new Ship ("Pirates of the Solar System", randomNr(135, 160), pirateResources, pirateSubsystems01);
 
-const pirateSubsystems02 = new Subsystems (80, 95, 75, 80, laser, torpedos);
-const pirateShip02 = new Ship ("Stelar Thieves", 165, pirateResources, pirateSubsystems02);
+const pirateSubsystems02 = new Subsystems (randomNr(65, 82), randomNr(70, 90), randomNr(60, 75), randomNr(65, 80), laser, torpedos);
+const pirateShip02 = new Ship ("Stelar Thieves", randomNr(115, 145), pirateResources, pirateSubsystems02);
 
-const pirateSubsystems03 = new Subsystems (50, 60, 55, 60, laser);
-const pirateShip03 = new Ship ("Desperate Desperados", 75, pirateResources, pirateSubsystems03);
+const pirateSubsystems03 = new Subsystems (randomNr(50, 65), randomNr(50, 70), randomNr(55, 65), randomNr(55, 65), laser);
+const pirateShip03 = new Ship ("Desperate Desperados", randomNr(75, 100), pirateResources, pirateSubsystems03);
 
-const pirateSubsystems04 = new Subsystems (40, 50, 35, 45, laser);
-const pirateShip04 = new Ship ("Weak but Mean", 60, pirateResources, pirateSubsystems04);
+const pirateSubsystems04 = new Subsystems (randomNr(40, 55), randomNr(40, 55), randomNr(40, 52), randomNr(40, 52), laser);
+const pirateShip04 = new Ship ("Weak but Mean", randomNr(50, 65), pirateResources, pirateSubsystems04);
 
-const pirateSubsystems05 = new Subsystems (35, 40, 30, 35, laser);
-const pirateShip05 = new Ship ("Suicide Mission", 45, pirateResources, pirateSubsystems05);
+const pirateSubsystems05 = new Subsystems (randomNr(30, 45), randomNr(25, 40), randomNr(25, 40), randomNr(30, 42), laser);
+const pirateShip05 = new Ship ("Suicide Mission", randomNr(40, 55), pirateResources, pirateSubsystems05);
 
-console.log(pirateShip01);
+// console.log(pirateShip01);
+// console.log(pirateSubsystems01);
+// console.log(pirateSubsystems02);
+// console.log(pirateSubsystems03);
+// console.log(pirateSubsystems04);
+// console.log(pirateSubsystems05);
+
+
 
 
 const playerMoney = playerShip.resources.money
@@ -248,4 +268,3 @@ function buy (thing, quantity, cash) {
     mine(){
         
     }
-}
