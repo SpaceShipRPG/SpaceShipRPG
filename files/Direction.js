@@ -3,7 +3,7 @@ const staticMap = require('./map.js');
 const wurmloch = require('./Wurmloch.js');
 const commerce = require('./Comerce.js');
 const prompt = require('prompt-sync')();
-
+const PlayerShip = require('./PlayerShip.js');
 
 let shipPosition = [5, 5];
 // playerShip.name = prompt('Please enter your ship name:    ');
@@ -89,7 +89,6 @@ function play() {
             if (elem.name === 'Vulkan' || elem.name === 'Kronos' || elem.name === 'Minerva') {
                 messageObject(elem.name);
                 const inputUser = input();
-                console.log('inputUser',inputUser);
                 if (inputUser === 1) {
                     console.log(`\
                     ******************************************\r\n\
@@ -104,22 +103,21 @@ function play() {
                     `);
                     const buyOption = input();
                     if (buyOption === 1) {
-                        const howMuch = input(`How much water do you want to buy?`);
-                        commerce.buy('water', howMuch)
+                        const howMuch = Number(prompt('How much water do you want to buy?     '));
+                        commerce.buy('water', howMuch);
                     } else if (buyOption === 2) {
-                        const howMuch = input(`How much food do you want to buy?`);
+                        const howMuch = Number(prompt('How much food do you want to buy?     '));
                         commerce.buy('food', howMuch)
                     } else if (buyOption === 3) {
-                        const howMuch = input(`How much medicine do you want to buy?`);
-                        commerce.buy('drugs', howMuch)
+                        const howMuch = Number(prompt('How much medicine do you want to buy?     '));
+                        commerce.buy('drugs', howMuch);
                     } else if (buyOption === 4) {
-                        const howMuch = input(`How much energy do you want to buy?`);
-                        commerce.buy('energy', howMuch)
+                        const howMuch = Number(prompt('How much energy do you want to buy?     '));
+                        commerce.buy('energy', howMuch);
                     } else if (buyOption === 5) {
-                        const howMuch = input(`How much spare parts do you want to buy?`);
-                        commerce.buy('shipParts', howMuch)
+                        const howMuch = Number(prompt('How much spare parts do you want to buy?     '));
+                        commerce.buy('shipParts', howMuch);
                     } else {
-                        gameState.stopPlaying();
                         return;
                     }
                 } else if (inputUser === 2) {
@@ -135,19 +133,18 @@ function play() {
                     `);
                     const sellOption = input();
                     if (sellOption === 1) {
-                        const howMuch = input(`How much minerals do you want to sell?`);
-                        commerce.sell('minerals', Number(howMuch))
+                        const howMuch = Number(prompt('How much minerals do you want to sell?     '));
+                        commerce.sell('minerals', howMuch)
                     } else if (sellOption === 2) {
-                        const howMuch = input(`How much metal do you want to sell?`);
+                        const howMuch = Number(prompt('How much metal do you want to sell?     '));
                         commerce.sell('metal', Number(howMuch))
                     } else if (sellOption === 3) {
-                        const howMuch = input(`How much gas do you want to sell?`);
+                        const howMuch = Number(prompt('How much gas do you want to sell?     '));
                         commerce.sell('gas', Number(howMuch))
                     } else if (sellOption === 4) {
-                        const howMuch = input(`How much technology do you want to sell?`);
+                        const howMuch = Number(prompt('How much tech do you want to sell?     '));
                         commerce.sell('tech', Number(howMuch))
                     } else {
-                        gameState.stopPlaying();
                         return;
                     }
                 } else if (inputUser === 3) {
