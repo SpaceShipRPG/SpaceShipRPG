@@ -286,20 +286,6 @@ function play() {
                 `);
             }
         }
-        function messagePlanet(params) {
-            console.log(`\
-            ******************************************\r\n\
-            *** You have the following options:       \r\n\
-            ***     Press 1 to buy water.             \r\n\
-            ***     Press 2 to buy Food.              \r\n\
-            ***     Press 3 to buy medicine.          \r\n\
-            ***     Press 4 to buy energy.            \r\n\
-            ***     Press 5 to buy spare parts.       \r\n\
-            ***     Press 6 to exit.                  \r\n\
-            ******************************************\r\n\
-            `);
-        }
-    
     
         function input() {
             const userInput = Number(prompt('Please make a choice!     '));
