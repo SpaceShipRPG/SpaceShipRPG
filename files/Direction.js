@@ -1,9 +1,10 @@
 const chalk = require('chalk');
 const staticMap = require('./map.js');
 const wurmloch = require('./Wurmloch.js');
+const commerce = require('./Comerce.js');
 const prompt = require('prompt-sync')();
 
-let shipPosition = [1, 20];
+let shipPosition = [5, 5];
 // playerShip.name = prompt('Please enter your ship name:    ');
 
 function play() {
@@ -69,7 +70,7 @@ function play() {
             console.log(`Your current position is [x: ${shipPosition[0]}, y: ${shipPosition[1]}].`);
             
             if (elem.name === 'Home') {
-                messagePlanet(elem.name);
+                messageObject(elem.name);
                 const inputUser = input();
                 if (inputUser === 1) {
                     // delivery
@@ -85,12 +86,69 @@ function play() {
                 }
             }
             if (elem.name === 'Vulkan' || elem.name === 'Kronos' || elem.name === 'Minerva') {
-                messagePlanet(elem.name);
+                messageObject(elem.name);
                 const inputUser = input();
+                console.log('inputUser',inputUser);
                 if (inputUser === 1) {
-                    // buy();
+                    console.log(`\
+                    ******************************************\r\n\
+                    *** You have the following options:       \r\n\
+                    ***     Press 1 to buy water.             \r\n\
+                    ***     Press 2 to buy Food.              \r\n\
+                    ***     Press 3 to buy medicine.          \r\n\
+                    ***     Press 4 to buy energy.            \r\n\
+                    ***     Press 5 to buy spare parts.       \r\n\
+                    ***     Press 6 to exit.                  \r\n\
+                    ******************************************\r\n\
+                    `);
+                    const buyOption = input();
+                    if (buyOption === 1) {
+                        const howMuch = input(`How much water do you want to buy?`);
+                        commerce.buy('water', Number(howMuch))
+                    } else if (buyOption === 2) {
+                        const howMuch = input(`How much food do you want to buy?`);
+                        commerce.buy('food', Number(howMuch))
+                    } else if (buyOption === 3) {
+                        const howMuch = input(`How much medicine do you want to buy?`);
+                        commerce.buy('drugs', Number(howMuch))
+                    } else if (buyOption === 4) {
+                        const howMuch = input(`How much energy do you want to buy?`);
+                        commerce.buy('energy', Number(howMuch))
+                    } else if (buyOption === 5) {
+                        const howMuch = input(`How much spare parts do you want to buy?`);
+                        commerce.buy('shipParts', Number(howMuch))
+                    } else {
+                        gameState.stopPlaying();
+                        return;
+                    }
                 } else if (inputUser === 2) {
-                    // sell();
+                    console.log(`\
+                    *******************************************\r\n\
+                    *** You have the following options:        \r\n\
+                    ***     Press 1 to sell minerals.          \r\n\
+                    ***     Press 2 to sell metal.             \r\n\
+                    ***     Press 3 to sell gas.               \r\n\
+                    ***     Press 4 to sell special technology.\r\n\
+                    ***     Press 5 to exit.                   \r\n\
+                    *******************************************\r\n\
+                    `);
+                    const sellOption = input();
+                    if (sellOption === 1) {
+                        const howMuch = input(`How much minerals do you want to sell?`);
+                        commerce.sell('minerals', Number(howMuch))
+                    } else if (sellOption === 2) {
+                        const howMuch = input(`How much metal do you want to sell?`);
+                        commerce.sell('metal', Number(howMuch))
+                    } else if (sellOption === 3) {
+                        const howMuch = input(`How much gas do you want to sell?`);
+                        commerce.sell('gas', Number(howMuch))
+                    } else if (sellOption === 4) {
+                        const howMuch = input(`How much technology do you want to sell?`);
+                        commerce.sell('tech', Number(howMuch))
+                    } else {
+                        gameState.stopPlaying();
+                        return;
+                    }
                 } else if (inputUser === 3) {
                     // recruit()
                 } else if (inputUser === 4) {
@@ -102,7 +160,7 @@ function play() {
             }
     
             if (elem.name === 'Astroid' || elem.name === 'Nebula' || elem.name === 'Star' || elem.name === 'Graveyard') {
-                messagePlanet(elem.name);
+                messageObject(elem.name);
                 const inputUser = input();
                 if (inputUser === 1) {
                     mine();
@@ -115,7 +173,7 @@ function play() {
             }
     
             if (elem.name === 'Space Station') {
-                messagePlanet(elem.name);
+                messageObject(elem.name);
                 const inputUser = input();
                 if (inputUser === 1) {
                     buy();
@@ -131,7 +189,7 @@ function play() {
             }
     
             if (elem.name === 'Pirate') {
-                messagePlanet(elem.name);
+                messageObject(elem.name);
                 const inputUser = input();
                 if (inputUser === 1) {
                     fight();
@@ -142,7 +200,7 @@ function play() {
                 }
             }
             if (elem.name === 'Wormhole') {
-                messagePlanet(elem.name);
+                messageObject(elem.name);
                 const wormHoleRandom = wurmloch();
                 shipPosition[0] = wormHoleRandom[0];
                 shipPosition[1] = wormHoleRandom[1];
@@ -157,7 +215,7 @@ function play() {
         }
     
     
-        function messagePlanet(params) {
+        function messageObject(params) {
             if (params === 'Vulkan' || params === 'Vulkan' || params === 'Vulkan') {
                 console.log(`\
                 ******************************************\r\n\
@@ -228,6 +286,19 @@ function play() {
                 `);
             }
         }
+        function messagePlanet(params) {
+            console.log(`\
+            ******************************************\r\n\
+            *** You have the following options:       \r\n\
+            ***     Press 1 to buy water.             \r\n\
+            ***     Press 2 to buy Food.              \r\n\
+            ***     Press 3 to buy medicine.          \r\n\
+            ***     Press 4 to buy energy.            \r\n\
+            ***     Press 5 to buy spare parts.       \r\n\
+            ***     Press 6 to exit.                  \r\n\
+            ******************************************\r\n\
+            `);
+        }
     
     
         function input() {
@@ -249,5 +320,3 @@ const gameState = {
 while (gameState.isPlaying) {
     play();
 }
-
-/* module.export = shipPosition; */
