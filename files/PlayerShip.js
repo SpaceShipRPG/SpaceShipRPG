@@ -15,8 +15,8 @@ class Ship {
         this.subsystems = subsystems
     }
 
-    get recruit {
-        this.crew += randomNr
+    get recruit (){
+        this.crew += this.crew * randomNr 
     }
 
     set maintainance(people) {
