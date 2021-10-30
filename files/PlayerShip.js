@@ -15,6 +15,10 @@ class Ship {
         this.subsystems = subsystems
     }
 
+    get recruit (){
+        this.crew += this.crew * randomNr 
+    }
+
     set maintainance(people) {
         this.resources.oxygen -= crew
         this.resources.water -= crew
@@ -85,13 +89,14 @@ class Ship {
 //  >>>> Crew als neue Klasse, nicht nur Zahl? Mit Eigenschaften wie Größe, Moral (sinkt wenn Leute sterben >> Wahrscheinlichkeit für Meuterei steigt...). Später vielleicht: Rasse (unterschiedliche Boni und Mali), ChefIngenier : true gibt Bonus bei Reperatur, weitere wichtige CrewMitglieder etc....
 
 class Resources {
-    constructor (food = 0, water = 0, oxygen = 0, minerals = 0, drugs = 0, metal = 0, energy = 0, specialTech = 0, credits = 0) {
+    constructor (food = 0, water = 0, oxygen = 0, minerals = 0, drugs = 0, metal = 0, gas = 0, energy = 0, specialTech = 0, credits = 0) {
         this.food = food
         this.water = water
         this.oxygen = oxygen
         this.minerals = minerals
         this.drugs = drugs
         this.metal = metal
+        this.gas = gas
         this.energy = energy
         this.specialTech = specialTech
         this.credits = credits
@@ -137,6 +142,7 @@ const playerMaxWater = 250;
 const playerMaxOxygen = 250;
 const playerMaxMinerals = 250;
 const playerMaxDrugs = 250;
+const playerMaxGas = 250;
 const playerMaxMetal = 250;
 const playerMaxEnergy = 250;
 const playerMaxSpecialTech = 250;
@@ -241,6 +247,7 @@ exports.playerMaxFood = playerMaxFood;
 exports.playerMaxWater = playerMaxWater;
 exports.playerMaxOxygen = playerMaxOxygen;
 exports.playerMaxMinerals = playerMaxMinerals;
+exports.playerGas = playerMaxGas;
 exports.playerMaxDrugs = playerMaxDrugs;
 exports.playerMaxMetal = playerMaxMetal;
 exports.playerMaxEnergy = playerMaxEnergy;
