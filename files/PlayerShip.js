@@ -8,11 +8,12 @@ const randomNr = require('./randomNr.js')
 // factory methode
 
 class Ship {
-    constructor (name, crew, resources, subsystems) {
+    constructor (name, crew, resources, subsystems, victoryPoints) {
         this.name = name
         this.crew = crew
         this.resources = resources
         this.subsystems = subsystems
+        this.victoryPoints = victoryPoints
     }
 
     get recruit (){
@@ -84,6 +85,12 @@ class Ship {
     }
     set mineEnergy(quantity) {
         this.resources.energy += crew
+    }
+
+    // victory points methods
+
+    set victoryPoints (vp) {
+        this.victoryPoints += vp
     }
 };
 //  >>>> Crew als neue Klasse, nicht nur Zahl? Mit Eigenschaften wie Größe, Moral (sinkt wenn Leute sterben >> Wahrscheinlichkeit für Meuterei steigt...). Später vielleicht: Rasse (unterschiedliche Boni und Mali), ChefIngenier : true gibt Bonus bei Reperatur, weitere wichtige CrewMitglieder etc....
