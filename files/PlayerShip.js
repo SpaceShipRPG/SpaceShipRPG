@@ -33,25 +33,25 @@ class Ship {
     } 
 
     set getMoney(money) {
-        this.resources.money += money
+        this.resources.credits += money
     }
-    set sellMineral(good) {
+    set sellMineral(quantity) {
         this.resources.mineral -= quantity
     }
-    set sellMetal (good) {
+    set sellMetal (quantity) {
         this.resources.metal -= quantity
     }
-    set sellGas (good) {
+    set sellGas (quantity) {
         this.resources.gas -= quantity
     }
-    set sellTech(good) {
+    set sellTech(quantity) {
         this.resources.tech -= quantity
     }
 
     // buy methods
 
     set investMoney(money) {
-        this.resources.money -= money
+        this.resources.credits -= money
     }
     set buyWater(quantity) {
         this.resources.water += quantity 
@@ -163,7 +163,6 @@ const playerStartResources = new Resources (100, 80, 100, 0, 5, 0, 60, 0, 15);
 
 const playerSubsystems = new Subsystems (playerMaxEngine, playerMaxHull, playerMaxLifeSupport, playerMaxShield, laser, torpedos);
 const playerShip = new Ship ("playerShip", 200, playerStartResources, playerSubsystems);
-
 
 
 /* const PlayerShip = {
