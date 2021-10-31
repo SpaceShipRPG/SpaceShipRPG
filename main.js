@@ -1,10 +1,8 @@
-/* const Ship = require('./alteDateien/Ship')
-
-const testSchiff = new Ship ('Test-Schiff', 200, {shields: 50}, {water: 25, oxygen: 20, energy: 30, food: 25})
-
-console.log(neue) */
-
+const Direction = require('./files/Direction.js');
 const chalk = require('chalk');
+const PlayerShip = require("./files/PlayerShip.js");
+
+
 console.clear();
   console.log(chalk.yellow.bgRed.bold(`\
   *****************************************************************************************************\r\n\
@@ -20,13 +18,19 @@ console.clear();
                 press 8 to move upward,                                                                \r\n\
                 press 2 to move downward.                                                              \r\n\
                                                                                                        \r\n\
-              Your journey will be exciting and dangerous. You will find new planets, asteroid belt,   \r\n\
-              nebula, wormholes, space stations, graveyards and you will encounter dangerous           \r\n\
+              Your journey will be exciting and dangerous. You will find new planets, asteroid belts,  \r\n\
+              nebulae, wormholes, space stations, ship graveyards and you will encounter dangerous     \r\n\
               pirates during the game. Additionally you have the opportunity to trade and hire         \r\n\
-              crew members.                                                                            \r\n\
+              new crew members.                                                                        \r\n\
                                                                                                        \r\n\
               The game will end by visiting the whole universe.                                        \r\n\
                                                                                                        \r\n\
               Enjoy your journey.                                                                      \r\n\
                                                                                                        \r\n\
-  *****************************************************************************************************\r `))
+  *****************************************************************************************************\r `));
+
+ 
+// playerShip.name = prompt('Please enter your ship name:    ');
+
+
+// Direction.play();

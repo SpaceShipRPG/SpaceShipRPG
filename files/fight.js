@@ -1,25 +1,33 @@
 // Achtung nur Pseudo-Code für Planung und Brainstorming
 
+// Import:
 const randomNr = require("./randomNr");
 
-
+// ganz einfache Version nur mit Laser (ohne Torpedo) und sehr vereinfachten Rechnung:
 function shipAttack(enemy, weapon) {
-    if (enemy.subsystems.shield > 0) {
-        enemy.subsystems.shield -= weaponStrength * randomDamageStrength() * randomHitChance();
-        console.log(`${enemy.name} shields are now at (${enemy.shield})`)
-    } else {
-        randomShipDamage(enemy, weaponStrength);
-    }   
+
 };
 
+exports.shipAttack = shipAttack;
+
+
+// function shipAttack(enemy, weapon) {
+//     if (enemy.subsystems.shield > 0) {
+//         enemy.subsystems.shield -= weaponStrength * randomDamageStrength() * randomHitChance();
+//         console.log(`${enemy.name} shields are now at (${enemy.shield})`)
+//     } else {
+//         randomShipDamage(enemy, weaponStrength);
+//     }   
+// };
+
 // Erster Schritt: Trifft man oder nicht: (Entscheidungstabelle)
-this.subsystems.laser.accuracy * this.subsystems.laser.rateOfFire - enemy.subsystems.engine * randomNr(0.8, 1.2, 1);
+// this.subsystems.laser.accuracy * this.subsystems.laser.rateOfFire - enemy.subsystems.engine * randomNr(0.8, 1.2, 1);
 
 // Wenn ja: Schaden ermitteln:
 // Schilde noch oben? > Dann Schaden an den Schilden. Falls nicht, dann Schaden am Schiff. (Zufall welches System/e?)
 
 
-
+/*
 function randomDamageStrength () {
     return Math.random * 5;
 };
@@ -40,15 +48,15 @@ function randomShipDamage(enemy, weaponStrength) {
     if (chance <= 10) {
         // Schaden an der Lebenserhaltung    
     }
-};
+};      */
 
-function boardingAction () {
+// function boardingAction () {
     // (eigeneSoldaten * Handwaffenstärke * Random) - (FeindlicheSoldaten * Handwaffenstärke * Random)
     // danach (FeindlicheSoldaten * Handwaffenstärke * Random) - (eigeneSoldaten * Handwaffenstärke * Random)
     // repead irengwer = 0
     // if FeindlicheSoldaten >= 0 = Boarding failed;
     // if eigeneSoldaten >= 0 = Boarding erfolgreich; Schiff feindlich übernommen)
-};
+// };
 
 
 // Schiffswaffen:
@@ -73,7 +81,7 @@ function boardingAction () {
 
 
 // Geklauter Code von Duel-Simulator:
-
+/*
 function duel(a,d) {		
     var EVA_FACTOR = 1.125;
     var EVA_INHERENT = 0.5;				
@@ -102,7 +110,7 @@ var p2 = {id:'player 2',hp:10,atk:1,def:3,hit:1,eva:3};
 
 console.log(duel(p1,p2))
 
-
+*/
 
 
 // Code-Vorlage von Maxims DoomGuy-Spiel:
