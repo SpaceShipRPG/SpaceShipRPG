@@ -1,7 +1,7 @@
 const PlayerShip = require('./PlayerShip.js');
 function sell(what, quantity) {
 
-    switch (what) {
+/*    switch (what) {
         case 'mineral':
             if (quantity > PlayerShip.playerShip.resources.minerals[0]) {
                 quantity = PlayerShip.playerShip.resources.minerals[0]
@@ -20,22 +20,24 @@ function sell(what, quantity) {
             }
             PlayerShip.playerShip.sell("gas", quantity)
             break;
-        case 'tech':
+        case 'specialTech':
             if (quantity > PlayerShip.playerShip.resources.specialTech[0]) {
                 quantity = PlayerShip.playerShip.resources.specialTech[0]
             }
             PlayerShip.playerShip.sell("specialTech", quantity)
             break;
     }
-    PlayerShip.playerShip.buy("credits", quantity)
+*/
+    quantity = quantity > PlayerShip.playerShip.resources[what][0] ? PlayerShip.playerShip.resources[what][0] : quantity;
+
+    PlayerShip.playerShip.sell(what, quantity);
+    PlayerShip.playerShip.buy("credits", quantity);
 }
 
 function buy (what, quantity) {
-    
-    if (quantity > PlayerShip.playerShip.resources.credits) {
-        quantity = PlayerShip.playerShip.resources.credits
-    }
-    switch (what) {
+    quantity = quantity > PlayerShip.playerShip.resources.credits[0] ? PlayerShip.playerShip.resources.credits[0] : quantity;
+    quantity = (quantity > PlayerShip.playerShip.resources[what][1] - PlayerShip.playerShip.resources[what][0]) ? (PlayerShip.playerShip.resources[what][1] - PlayerShip.playerShip.resources[what][0]) : quantity;
+/*    switch (what) {
         case 'water':
             PlayerShip.playerShip.buy("water", quantity);
             break;
@@ -53,6 +55,8 @@ function buy (what, quantity) {
             PlayerShip.playerShip.buy("energy", quantity);
             break;
     }
+*/
+    PlayerShip.playerShip.buy(what, quantity);
     PlayerShip.playerShip.sell("credits", quantity);
 }
 exports.sell = sell;

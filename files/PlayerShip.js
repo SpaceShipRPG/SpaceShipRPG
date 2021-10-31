@@ -1,5 +1,5 @@
 // Imports:
-const randomNr = require('./randomNr.js')
+const randomNr = require('./randomNr.js');
 
 
 
@@ -20,17 +20,13 @@ class Ship {
         // this.crew[0] += randomNr(15, 25)
     }
 
-    set maintainance(people) {
+    maintainance(people) {
         this.resources.oxygen[0] -= Math.floor(crew / 10)
         this.resources.water[0] -= Math.floor(crew / 10)
         this.resources.food[0] -= Math.floor(crew / 10)
     }
     repairShip(subsystem, work) {
         this.Subsystems[subsystem][0] += work
-    }
-
-    mining(resource) {
-    this.resources[resource][0] += Math.floor(this.crew * randomNr(0.8, 1.2) / 10)
     }
 
     buy (resource, quantity) {
@@ -96,10 +92,10 @@ const playerShip = new Ship ("playerShip", [200, 500], playerStartResources, pla
 
 
 // Test des neuen Systems mit Array und ohne getter und setter:
-console.log(playerShip.resources.energy)
-playerShip.buy("energy", -5)
-console.log(playerShip.resources.energy)
-console.log(playerShip);
+// console.log(playerShip.resources.energy)
+// playerShip.buy("energy", -5)
+// console.log(playerShip.resources.energy)
+// console.log(playerShip);
 
 // Exports:
 exports.playerShip = playerShip;
