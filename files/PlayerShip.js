@@ -22,7 +22,7 @@ class Ship {
         // this.crew[0] += randomNr(15, 25)
     }
 
-    maintainance(people) {
+    maintainance() {
         this.resources.oxygen[0] -= Math.floor(crew / 10)
         this.resources.water[0] -= Math.floor(crew / 10)
         this.resources.food[0] -= Math.floor(crew / 10)
@@ -31,6 +31,7 @@ class Ship {
     buy (resource, quantity) {
         this.resources[resource][0] += quantity
     }
+
     sell (resource, quantity) {
         this.resources[resource][0] -= quantity
     }
@@ -95,11 +96,6 @@ const playerShip = new Ship ("playerShip", [200, 500], playerStartResources, pla
 
 
 
-// Test des neuen Systems mit Array und ohne getter und setter:
-// console.log(playerShip.resources.energy)
-// playerShip.buy("energy", -5)
-// console.log(playerShip.resources.energy)
-console.log(playerShip);
 
 // Exports:
 exports.playerShip = playerShip;

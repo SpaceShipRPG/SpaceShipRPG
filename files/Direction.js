@@ -10,6 +10,7 @@ const PirateShip = require('./PirateShip.js');
 const fight = require('./fight.js');
 const repair = require('./repair.js');
 const Mine = require('./mine.js');
+const victoryPoints = require('./victoryPoints.js')
 
 
 let shipPosition = [5, 5];
