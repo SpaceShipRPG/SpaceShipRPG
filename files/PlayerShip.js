@@ -122,7 +122,7 @@ class Ship {
 //  >>>> Crew als neue Klasse, nicht nur Zahl? Mit Eigenschaften wie Größe, Moral (sinkt wenn Leute sterben >> Wahrscheinlichkeit für Meuterei steigt...). Später vielleicht: Rasse (unterschiedliche Boni und Mali), ChefIngenier : true gibt Bonus bei Reperatur, weitere wichtige CrewMitglieder etc....
 
 class Resources {
-    constructor (food = [0, 250], water = [0, 250], oxygen = [0, 250], minerals = [0, 250], drugs = [0, 250], metal = [0, 250], gas = [0, 250], energy = [0, 250], specialTech = [0, 250], credits = [0, 250]) {
+    constructor (food = [0, 250], water = [0, 250], oxygen = [0, 250], minerals = [0, 250], drugs = [0, 250], metal = [0, 250], gas = [0, 250], energy = [0, 250], specialTech = [0, 250], shipParts = [0, 250], credits = [0, 250]) {
         this.food = food
         this.water = water
         this.oxygen = oxygen
@@ -132,6 +132,7 @@ class Resources {
         this.gas = gas
         this.energy = energy
         this.specialTech = specialTech
+        this.shipParts = shipParts
         this.credits = credits
     }
 };
@@ -186,7 +187,7 @@ const playerMaxCredtis = Infinity;
 const laser = new Weapons ("Laser", 5, 8, 4, 2, [50, 50]);
 const torpedos = new Weapons ("Torpedos", 20, 3, 1, 9, [50, 50]);
 
-const playerStartResources = new Resources ([100, 250], [80, 250], [100, 250], [0, 250], [5, 250], [0, 250], [0, 250], [60, 250], [0, 250], [15, Infinity]);
+const playerStartResources = new Resources ([100, 250], [80, 250], [100, 250], [0, 250], [5, 250], [0, 250], [0, 250], [60, 250], [0, 250], [0, 250], [15, Infinity]);
 
 const playerSubsystems = new Subsystems ([100, 100], [125, 125], [90, 90], [150, 150], [100, 100], laser, torpedos);
 const playerShip = new Ship ("playerShip", [200, 500], [0, 50], playerStartResources, playerSubsystems);
@@ -264,6 +265,7 @@ const playerShip = new Ship ("playerShip", [200, 500], [0, 50], playerStartResou
 console.log(playerShip.resources.energy)
 playerShip.buy("energy", -5)
 console.log(playerShip.resources.energy)
+console.log(playerShip);
 
 // Exports:
 exports.playerShip = playerShip;
