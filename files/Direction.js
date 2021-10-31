@@ -89,72 +89,79 @@ function play() {
             if (elem.name === 'Vulkan' || elem.name === 'Kronos' || elem.name === 'Minerva') {
                 messageObject(elem.name);
                 const inputUser = input();
-                if (inputUser === 1) {
-                    console.log(`\
-                    ******************************************\r\n\
-                    *** You have the following options:       \r\n\
-                    ***     Press 1 to buy water.             \r\n\
-                    ***     Press 2 to buy Food.              \r\n\
-                    ***     Press 3 to buy medicine.          \r\n\
-                    ***     Press 4 to buy energy.            \r\n\
-                    ***     Press 5 to buy spare parts.       \r\n\
-                    ***     Press 6 to exit.                  \r\n\
-                    ******************************************\r\n\
-                    `);
-                    const buyOption = input();
-                    if (buyOption === 1) {
-                        const howMuch = Number(prompt('How much water do you want to buy?     '));
-                        commerce.buy('water', howMuch);
-                    } else if (buyOption === 2) {
-                        const howMuch = Number(prompt('How much food do you want to buy?     '));
-                        commerce.buy('food', howMuch)
-                    } else if (buyOption === 3) {
-                        const howMuch = Number(prompt('How much medicine do you want to buy?     '));
-                        commerce.buy('drugs', howMuch);
-                    } else if (buyOption === 4) {
-                        const howMuch = Number(prompt('How much energy do you want to buy?     '));
-                        commerce.buy('energy', howMuch);
-                    } else if (buyOption === 5) {
-                        const howMuch = Number(prompt('How much spare parts do you want to buy?     '));
-                        commerce.buy('shipParts', howMuch);
-                    } else {
+                while (tradeState.isTrade) {
+
+                    if (inputUser === 1) {
+                        console.log(`\
+                        ******************************************\r\n\
+                        *** You have the following options:       \r\n\
+                        ***     Press 1 to buy water.             \r\n\
+                        ***     Press 2 to buy Food.              \r\n\
+                        ***     Press 3 to buy medicine.          \r\n\
+                        ***     Press 4 to buy energy.            \r\n\
+                        ***     Press 5 to buy spare parts.       \r\n\
+                        ***     Press 6 to exit.                  \r\n\
+                        ******************************************\r\n\
+                        `);
+                        const buyOption = input();
+                        if (buyOption === 1) {
+                            const howMuch = Number(prompt('How much water do you want to buy?     '));
+                            commerce.buy('water', howMuch);
+                        } else if (buyOption === 2) {
+                            const howMuch = Number(prompt('How much food do you want to buy?     '));
+                            commerce.buy('food', howMuch)
+                        } else if (buyOption === 3) {
+                            const howMuch = Number(prompt('How much medicine do you want to buy?     '));
+                            commerce.buy('drugs', howMuch);
+                        } else if (buyOption === 4) {
+                            const howMuch = Number(prompt('How much energy do you want to buy?     '));
+                            commerce.buy('energy', howMuch);
+                        } else if (buyOption === 5) {
+                            const howMuch = Number(prompt('How much spare parts do you want to buy?     '));
+                            commerce.buy('shipParts', howMuch);
+                        } else {
+                            tradeState.stopTrading();
+                            return;
+                        }
+                    } else if (inputUser === 2) {
+                        console.log(`\
+                        *******************************************\r\n\
+                        *** You have the following options:        \r\n\
+                        ***     Press 1 to sell minerals.          \r\n\
+                        ***     Press 2 to sell metal.             \r\n\
+                        ***     Press 3 to sell gas.               \r\n\
+                        ***     Press 4 to sell special technology.\r\n\
+                        ***     Press 5 to exit.                   \r\n\
+                        *******************************************\r\n\
+                        `);
+                        const sellOption = input();
+                        if (sellOption === 1) {
+                            const howMuch = Number(prompt('How much minerals do you want to sell?     '));
+                            commerce.sell('minerals', howMuch)
+                        } else if (sellOption === 2) {
+                            const howMuch = Number(prompt('How much metal do you want to sell?     '));
+                            commerce.sell('metal', Number(howMuch))
+                        } else if (sellOption === 3) {
+                            const howMuch = Number(prompt('How much gas do you want to sell?     '));
+                            commerce.sell('gas', Number(howMuch))
+                        } else if (sellOption === 4) {
+                            const howMuch = Number(prompt('How much tech do you want to sell?     '));
+                            commerce.sell('tech', Number(howMuch))
+                        } else {
+                            return;
+                        }
+                    } else if (inputUser === 3) {
+                        // recruit()
+                    } else if (inputUser === 4) {
+                        console.log('hier',shipPosition);
                         return;
-                    }
-                } else if (inputUser === 2) {
-                    console.log(`\
-                    *******************************************\r\n\
-                    *** You have the following options:        \r\n\
-                    ***     Press 1 to sell minerals.          \r\n\
-                    ***     Press 2 to sell metal.             \r\n\
-                    ***     Press 3 to sell gas.               \r\n\
-                    ***     Press 4 to sell special technology.\r\n\
-                    ***     Press 5 to exit.                   \r\n\
-                    *******************************************\r\n\
-                    `);
-                    const sellOption = input();
-                    if (sellOption === 1) {
-                        const howMuch = Number(prompt('How much minerals do you want to sell?     '));
-                        commerce.sell('minerals', howMuch)
-                    } else if (sellOption === 2) {
-                        const howMuch = Number(prompt('How much metal do you want to sell?     '));
-                        commerce.sell('metal', Number(howMuch))
-                    } else if (sellOption === 3) {
-                        const howMuch = Number(prompt('How much gas do you want to sell?     '));
-                        commerce.sell('gas', Number(howMuch))
-                    } else if (sellOption === 4) {
-                        const howMuch = Number(prompt('How much tech do you want to sell?     '));
-                        commerce.sell('tech', Number(howMuch))
                     } else {
-                        return;
+                        console.log('Please enter a number between 1 and 4');
                     }
-                } else if (inputUser === 3) {
-                    // recruit()
-                } else if (inputUser === 4) {
-                    console.log('hier',shipPosition);
-                    return;
-                } else {
-                    console.log('Please enter a number between 1 and 4');
+
+
                 }
+                
             }
     
             if (elem.name === 'Astroid' || elem.name === 'Nebula' || elem.name === 'Star' || elem.name === 'Graveyard') {
@@ -294,7 +301,12 @@ function play() {
     checkPosition(); */
 };
 
-
+const tradeState = {
+    isTrade: true,
+    stopTrading() {
+        this.isTrade = false;
+    }
+}
 const gameState = {
     isPlaying: true,
     stopPlaying() {
