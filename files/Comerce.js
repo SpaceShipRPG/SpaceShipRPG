@@ -35,7 +35,9 @@ function sell(what, quantity) {
 }
 
 function buy (what, quantity) {
+    // hier wird überprüft ob quantity/Menge größer ist als das vorhandene Geld. Wenn Ja, dann kann nur soviel ausgegeben werden wie Geld vorhanden ist. Wenn mehr Geld vorhanden ist als quantity/Menge dann kann die gewünschte quantity/Menge gekauft werden. 
     quantity = quantity > PlayerShip.playerShip.resources.credits[0] ? PlayerShip.playerShip.resources.credits[0] : quantity;
+    // hier wird überprüft wie viel 'what' gekauft werden kann in abhängigkeit der Lagerungskapazität.  
     quantity = (quantity > PlayerShip.playerShip.resources[what][1] - PlayerShip.playerShip.resources[what][0]) ? (PlayerShip.playerShip.resources[what][1] - PlayerShip.playerShip.resources[what][0]) : quantity;
 /*    switch (what) {
         case 'water':
@@ -56,7 +58,9 @@ function buy (what, quantity) {
             break;
     }
 */
+    // hier wird gekauft
     PlayerShip.playerShip.buy(what, quantity);
+    // hier wird bezahlt
     PlayerShip.playerShip.sell("credits", quantity);
 }
 exports.sell = sell;
