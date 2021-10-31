@@ -3,32 +3,31 @@ function sell(what, quantity) {
 
     switch (what) {
         case 'mineral':
-            if (quantity > PlayerShip.playerShip.resources.minerals) {
-                quantity = PlayerShip.playerShip.resources.minerals
+            if (quantity > PlayerShip.playerShip.resources.minerals[0]) {
+                quantity = PlayerShip.playerShip.resources.minerals[0]
             }
-            PlayerShip.playerShip.sellMineral = quantity
+            PlayerShip.playerShip.sell("minerals", quantity)
             break;
         case 'metal':
-            if (quantity > PlayerShip.playerShip.resources.metal) {
-                quantity = PlayerShip.playerShip.resources.metal
+            if (quantity > PlayerShip.playerShip.resources.metal[0]) {
+                quantity = PlayerShip.playerShip.resources.metal[0]
             }
-            PlayerShip.playerShip.sellMetal = quantity
+            PlayerShip.playerShip.sell("metal", quantity)
             break;
         case 'gas':
-            // gas ist nicht definiert
-            if (quantity > PlayerShip.playerShip.resources.gas) {
-                quantity = PlayerShip.playerShip.resources.gas
+            if (quantity > PlayerShip.playerShip.resources.gas[0]) {
+                quantity = PlayerShip.playerShip.resources.gas[0]
             }
-            PlayerShip.playerShip.sellGas = quantity
+            PlayerShip.playerShip.sell("gas", quantity)
             break;
         case 'tech':
-            if (quantity > PlayerShip.playerShip.resources.specialTech) {
-                quantity = PlayerShip.playerShip.resources.specialTech
+            if (quantity > PlayerShip.playerShip.resources.specialTech[0]) {
+                quantity = PlayerShip.playerShip.resources.specialTech[0]
             }
-            PlayerShip.playerShip.sellTech = quantity
+            PlayerShip.playerShip.sell("specialTech", quantity)
             break;
     }
-    PlayerShip.playerShip.getMoney = quantity
+    PlayerShip.playerShip.buy("credits", quantity)
 }
 
 function buy (what, quantity) {
@@ -38,23 +37,23 @@ function buy (what, quantity) {
     }
     switch (what) {
         case 'water':
-            PlayerShip.playerShip.buyWater = quantity;
+            PlayerShip.playerShip.buy("water", quantity);
             break;
         case 'food':
-            PlayerShip.playerShip.buyFood = quantity;
+            PlayerShip.playerShip.buy("food", quantity);
             break;
         case 'drugs':
-            PlayerShip.playerShip.buyDrugs = quantity;
+            PlayerShip.playerShip.buy("drugs", quantity);
             break;
         case 'shipParts':
             // diese Variable existiert nicht.
-            PlayerShip.playerShip.buyShipParts = quantity;
+            PlayerShip.playerShip.buy("shipParts", quantity);
             break;
         case 'energy':
-            PlayerShip.playerShip.buyEnergy = quantity;
+            PlayerShip.playerShip.buy("energy", quantity);
             break;
     }
-    PlayerShip.playerShip.investMoney = quantity;
+    PlayerShip.playerShip.sell("credits", quantity);
 }
 exports.sell = sell;
 exports.buy = buy;
