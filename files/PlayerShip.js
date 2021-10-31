@@ -8,10 +8,9 @@ const randomNr = require('./randomNr.js')
 // factory methode
 
 class Ship {
-    constructor (name, crew, victoryPoints = [0, 50], resources, subsystems, ) {
+    constructor (name, crew, resources, subsystems, ) {
         this.name = name
         this.crew = crew
-        this.victoryPoints = victoryPoints
         this.resources = resources
         this.subsystems = subsystems
     }
@@ -34,10 +33,6 @@ class Ship {
     this.resources[resource][0] += Math.floor(this.crew * randomNr(0.8, 1.2) / 10)
     }
 
-    victoryPoints (vp) {
-        this.victoryPoints += vp
-    }
-
     buy (resource, quantity) {
         this.resources[resource][0] += quantity
     }
@@ -50,7 +45,7 @@ class Ship {
 
 
 class Resources {
-    constructor (food = [0, 250], water = [0, 250], oxygen = [0, 250], minerals = [0, 250], drugs = [0, 250], metal = [0, 250], gas = [0, 250], energy = [0, 250], specialTech = [0, 250], shipParts = [0, 250], credits = [0, 250]) {
+    constructor (food = [0, 250], water = [0, 250], oxygen = [0, 250], minerals = [0, 250], drugs = [0, 250], metal = [0, 250], gas = [0, 250], energy = [0, 250], specialTech = [0, 250], shipParts = [0, 250], victoryPoints = [0, 50], credits = [0, 250]) {
         this.food = food
         this.water = water
         this.oxygen = oxygen
@@ -61,6 +56,7 @@ class Resources {
         this.energy = energy
         this.specialTech = specialTech
         this.shipParts = shipParts
+        this.victoryPoints = victoryPoints
         this.credits = credits
     }
 };
@@ -92,10 +88,10 @@ class Weapons {
 const laser = new Weapons ("Laser", 5, 8, 4, 2, [50, 50]);
 const torpedos = new Weapons ("Torpedos", 20, 3, 1, 9, [50, 50]);
 
-const playerStartResources = new Resources ([100, 250], [80, 250], [100, 250], [0, 250], [5, 250], [0, 250], [0, 250], [60, 250], [0, 250], [0, 250], [15, Infinity]);
+const playerStartResources = new Resources ([100, 250], [80, 250], [100, 250], [0, 250], [5, 250], [0, 250], [0, 250], [60, 250], [0, 250], [0, 250], [0, 50], [15, Infinity]);
 
 const playerSubsystems = new Subsystems ([100, 100], [125, 125], [90, 90], [150, 150], [100, 100], laser, torpedos);
-const playerShip = new Ship ("playerShip", [200, 500], [0, 50], playerStartResources, playerSubsystems);
+const playerShip = new Ship ("playerShip", [200, 500], playerStartResources, playerSubsystems);
 
 
 
