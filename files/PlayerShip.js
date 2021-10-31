@@ -107,13 +107,13 @@ class Ship {
         this.victoryPoints += vp
     }
 
+    // Eigentlich reicht eine der Funktionen hier für alle Buy und Sell-Aktionen! Bei Sell muss man einfach nur einen negativen Wert bei Quantity angeben...
     buy (resource, quantity) {
         this.resources[resource][0] += quantity
     }
     sell (resource, quantity) {
         this.resources[resource][0] -= quantity
     }
-    // Eigentlich reicht die Funktion hier für alle Buy und Sell-Aktionen! Bei Sell muss man einfach nur einen negativen Wert bei Quantity angeben...
     changeResources (resource, quantity) {
         this.resources[resource][0] += quantity
     }
