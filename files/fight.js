@@ -8,7 +8,7 @@ function shipAttack(enemy, weapon) {
 
 };
 
-
+exports.shipAttack = shipAttack;
 
 
 // function shipAttack(enemy, weapon) {
@@ -81,7 +81,7 @@ function randomShipDamage(enemy, weaponStrength) {
 
 
 // Geklauter Code von Duel-Simulator:
-
+/*
 function duel(a,d) {		
     var EVA_FACTOR = 1.125;
     var EVA_INHERENT = 0.5;				
@@ -110,7 +110,7 @@ var p2 = {id:'player 2',hp:10,atk:1,def:3,hit:1,eva:3};
 
 console.log(duel(p1,p2))
 
-
+*/
 
 
 // Code-Vorlage von Maxims DoomGuy-Spiel:
