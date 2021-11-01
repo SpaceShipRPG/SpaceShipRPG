@@ -131,21 +131,21 @@ const staticMap = [
     x: 1,
     y: 10,
     visited: false,
-    resources: spaceStation01Res
+    resources: spaceStationRes
   },
   {
     name: 'Space Station',
     x: 10,
     y: 5,
     visited: false,
-    resources: spaceStation01Res
+    resources: spaceStationRes
   },
   {
     name: 'Space Station',
     x: 16,
     y: 13,
     visited: false,
-    resources: spaceStation01Res
+    resources: spaceStationRes
   },
   {
     name: 'Graveyard',

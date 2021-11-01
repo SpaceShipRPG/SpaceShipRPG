@@ -122,23 +122,23 @@ function play() {
                             if (buyOption === 1) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.water[1] - PlayerShip.playerShip.resources.water[0]} units of water. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of water. How much water do you want to buy?     `));
-                                commerce.buy('water', howMuch);
+                                commerce.buy('water', howMuch, elem);
                             } else if (buyOption === 2) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.food[1] - PlayerShip.playerShip.resources.food[0]} units of food. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of food. How much food do you want to buy?     `));
-                                commerce.buy('food', howMuch)
+                                commerce.buy('food', howMuch, elem)
                             } else if (buyOption === 3) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.drugs[1] - PlayerShip.playerShip.resources.drugs[0]} units of medicine. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of medicine. How much medicine do you want to buy?     `));
-                                commerce.buy('drugs', howMuch);
+                                commerce.buy('drugs', howMuch, elem);
                             } else if (buyOption === 4) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.energy[1] - PlayerShip.playerShip.resources.energy[0]} units of energy. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of energy. How much energy do you want to buy?     `));
-                                commerce.buy('energy', howMuch);
+                                commerce.buy('energy', howMuch, elem);
                             } else if (buyOption === 5) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.shipParts[1] - PlayerShip.playerShip.resources.shipParts[0]} units of spare parts. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of spare parts. How much spare parts do you want to buy?     `));
-                                commerce.buy('shipParts', howMuch);
+                                commerce.buy('shipParts', howMuch, elem);
                             } else if (buyOption === 6) {
                                 levelBack = false;
                             } else {
@@ -160,22 +160,22 @@ function play() {
                             if (sellOption === 1) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can sell up to ${PlayerShip.playerShip.resources.minerals[0]} units of minerals. How much minerals do you want to sell?     `));
-                                commerce.sell('minerals', howMuch);
+                                commerce.sell('minerals', howMuch, elem);
                                 inform.informCredit();
                             } else if (sellOption === 2) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can sell up to ${PlayerShip.playerShip.resources.metal[0]} units of metal. How much metal do you want to sell?     `));
-                                commerce.sell('metal', howMuch);
+                                commerce.sell('metal', howMuch, elem);
                                 inform.informCredit();
                             } else if (sellOption === 3) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can sell up to ${PlayerShip.playerShip.resources.gas[0]} units of gas. How much gas do you want to sell?     `));
-                                commerce.sell('gas', howMuch);
+                                commerce.sell('gas', howMuch, elem);
                                 inform.informCredit();
                             } else if (sellOption === 4) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can sell up to ${PlayerShip.playerShip.resources.specialTech[0]} units of special tech. How much special tech do you want to sell?     `));
-                                commerce.sell('specialTech', howMuch);
+                                commerce.sell('specialTech', howMuch, elem);
                                 inform.informCredit();
                             } else if (sellOption === 5){
                                 levelBack = false;
@@ -212,21 +212,25 @@ function play() {
                     const inputUser = input();
                         if (inputUser === 1) {
                             if (elem.name === 'Astroid') {
-                                let random = randomNr(1, 2);
-                                let resource = random === 1 ? "metal" : "minerals";
-                                console.log(`Your current ${resource} is ${PlayerShip.playerShip.resources[resource][0]}`);
+                                let resource = '';
+                                if (elem.resources.minerals) {
+                                    resource = 'minerals';
+                                } else {
+                                    resource = 'metal';
+                                }
+                                console.log(`Your current ${resource} is ${PlayerShip.playerShip.resources[resource][0]} units. ${elem.resources[resource][0]} units ${resource} is currently available for mining.`);
                                 const storageCapacity = PlayerShip.playerShip.resources[resource][1] - PlayerShip.playerShip.resources[resource][0]; 
                                 if (storageCapacity === 0) {
                                     console.log(`Maximum storage capacity of ${resource} has already been achieved.`);
                                     return;
                                 } else {
-                                    Mine.mine(resource);
-                                    console.log(`Your ${resource} after mining is ${PlayerShip.playerShip.resources[resource][0]}`);
+                                    Mine.mine(resource, elem);
+                                    console.log(`Your ${resource} after mining is ${PlayerShip.playerShip.resources[resource][0]} units.`);
                                 }
                             };
-                            if (elem.name === 'Nebula') {Mine.mine("gas")};
-                            if (elem.name === 'Star') {Mine.mine("energy")};
-                            if (elem.name === 'Graveyard') {Mine.mine("specialTech")};
+                            if (elem.name === 'Nebula') {Mine.mine("gas", elem)};
+                            if (elem.name === 'Star') {Mine.mine("energy", elem)};
+                            if (elem.name === 'Graveyard') {Mine.mine("specialTech", elem)};
                             Danger.accident(elem.name);
                         } else if (inputUser === 2) {
                             inform.informAll();
@@ -268,23 +272,23 @@ function play() {
                             if (buyOption === 1) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.water[1] - PlayerShip.playerShip.resources.water[0]} units of water. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of water. How much water do you want to buy?     `));
-                                commerce.buy('water', howMuch);
+                                commerce.buy('water', howMuch, elem);
                             } else if (buyOption === 2) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.food[1] - PlayerShip.playerShip.resources.food[0]} units of food. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of food. How much food do you want to buy?     `));
-                                commerce.buy('food', howMuch)
+                                commerce.buy('food', howMuch, elem)
                             } else if (buyOption === 3) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.drugs[1] - PlayerShip.playerShip.resources.drugs[0]} units of drugs. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of medicine. How much medicine do you want to buy?     `));
-                                commerce.buy('drugs', howMuch);
+                                commerce.buy('drugs', howMuch, elem);
                             } else if (buyOption === 4) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.energy[1] - PlayerShip.playerShip.resources.energy[0]} units of energy. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of energy. How much energy do you want to buy?     `));
-                                commerce.buy('energy', howMuch);
+                                commerce.buy('energy', howMuch, elem);
                             } else if (buyOption === 5) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can buy up to ${PlayerShip.playerShip.resources.shipParts[1] - PlayerShip.playerShip.resources.shipParts[0]} units of spare parts. You only have enough money for ${PlayerShip.playerShip.resources.credits[0]} units of spare parts. How much spare parts do you want to buy?     `));
-                                commerce.buy('shipParts', howMuch);
+                                commerce.buy('shipParts', howMuch, elem);
                             } else if (buyOption === 6) {
                                 levelBack = false;
                             } else {
@@ -306,22 +310,22 @@ function play() {
                             if (sellOption === 1) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can sell up to ${PlayerShip.playerShip.resources.minerals[0]} units of minerals. How much minerals do you want to sell?     `));
-                                commerce.sell('minerals', howMuch);
+                                commerce.sell('minerals', howMuch, elem);
                                 inform.informCredit();
                             } else if (sellOption === 2) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can sell up to ${PlayerShip.playerShip.resources.metal[0]} units of metal. How much metal do you want to sell?     `));
-                                commerce.sell('metal', howMuch);
+                                commerce.sell('metal', howMuch, elem);
                                 inform.informCredit();
                             } else if (sellOption === 3) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can sell up to ${PlayerShip.playerShip.resources.gas[0]} units of gas. How much gas do you want to sell?     `));
-                                commerce.sell('gas', howMuch);
+                                commerce.sell('gas', howMuch, elem);
                                 inform.informCredit();
                             } else if (sellOption === 4) {
                                 inform.informCredit();
                                 const howMuch = Number(prompt(`You can sell up to ${PlayerShip.playerShip.resources.specialTech[0]} units of special tech. How much special tech do you want to sell?     `));
-                                commerce.sell('specialTech', howMuch);
+                                commerce.sell('specialTech', howMuch, elem);
                                 inform.informCredit();
                             } else if (sellOption === 5) {
                                 levelBack = false;
