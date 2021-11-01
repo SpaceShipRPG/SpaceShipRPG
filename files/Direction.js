@@ -12,9 +12,10 @@ const Repair = require('./repair.js');
 const Mine = require('./Mine.js');
 const victoryPoints = require('./victoryPoints.js')
 const inform = require('./Inform.js')
+const Maintainance = require('./maintainance.js')
 
 
-let shipPosition = [1, 9];
+let shipPosition = [5, 5];
 // playerShip.name = prompt('Please enter your ship name:    ');
 
 function play() {
@@ -186,9 +187,13 @@ function play() {
                             inform.informCrew();
                             const howMuch = Number(prompt(`How many crew members do you want to hire?    `));
                             PlayerShip.playerShip.recruit(howMuch);
-                            return inform.informCrew();
+                            inform.informCrew();
+                            levelBack = false;
                         } else if (inputUser === 4) {
                             tradeState.stopTrading();
+                            Maintainance.maintainance();
+                            Repair.selfRepair();
+                            Repair.shieldRecharge();
                             return;
                         }
                     }
@@ -222,6 +227,9 @@ function play() {
                             Danger.accident(elem.name);
                         } else if (inputUser === 2) {
                             tradeState.stopTrading();
+                            Maintainance.maintainance();
+                            Repair.selfRepair();
+                            Repair.shieldRecharge();
                             return;
                         } else {
                             console.log('Please enter a number between 1 and 2');
@@ -321,6 +329,9 @@ function play() {
                             levelBack = false;
                         } else if (inputUser === 4) {
                             tradeState.stopTrading();
+                            Maintainance.maintainance();
+                            Repair.selfRepair();
+                            Repair.shieldRecharge();
                             return;
                         }
                     }
@@ -334,6 +345,9 @@ function play() {
                 if (inputUser === 1) {
                     fight.shipAttack(PirateShip.randomPirate(), "laser");
                 } else if (inputUser === 2) {
+                    Maintainance.maintainance();
+                    Repair.selfRepair();
+                    Repair.shieldRecharge();
                     return;
                 } else {
                     console.log('Please enter a number between 1 and 2');
@@ -347,6 +361,9 @@ function play() {
                 shipPosition[0] = wormHoleRandom[0];
                 shipPosition[1] = wormHoleRandom[1];
                 console.log(shipPosition);
+                Maintainance.maintainance();
+                Repair.selfRepair();
+                Repair.shieldRecharge();
             }
             clash = true; 
             }
