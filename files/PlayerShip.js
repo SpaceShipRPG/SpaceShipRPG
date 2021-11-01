@@ -22,12 +22,6 @@ class Ship {
         // this.crew[0] += randomNr(15, 25)
     }
 
-    maintainance() {
-        this.resources.oxygen[0] -= Math.floor(crew / 10)
-        this.resources.water[0] -= Math.floor(crew / 10)
-        this.resources.food[0] -= Math.floor(crew / 10)
-    }
-
     buy (resource, quantity) {
         this.resources[resource][0] += quantity
     }

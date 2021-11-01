@@ -1,10 +1,10 @@
-const Direction = require('./files/Direction.js');
 const chalk = require('chalk');
 const PlayerShip = require("./files/PlayerShip.js");
+const prompt = require('prompt-sync')();
 
 
 console.clear();
-  console.log(chalk.yellow.bgRed.bold(`\
+  console.log(chalk.black.bgGreen.bold(`\
   *****************************************************************************************************\r\n\
                                                                                                        \r\n\
             Welcome to Space Ship                                                                      \r\n\
@@ -30,7 +30,6 @@ console.clear();
   *****************************************************************************************************\r `));
 
  
-// playerShip.name = prompt('Please enter your ship name:    ');
-
-
-// Direction.play();
+const shipName = prompt('Please enter your ship name:    ');
+PlayerShip.playerShip.name = shipName
+const Direction = require('./files/Direction.js');
