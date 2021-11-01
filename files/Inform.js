@@ -8,7 +8,7 @@ function inform() {
 }
 
 function informCredit() {
-    console.log(`Your current money is: ${PlayerShip.playerShip.resources.credits[0]}`);
+    console.log(`Your current money is: ${PlayerShip.playerShip.resources.credits[0]} units.`);
 }
 function informCrew() {
     console.log(`The number of your current crew is: ${PlayerShip.playerShip.crew[0]}`);
