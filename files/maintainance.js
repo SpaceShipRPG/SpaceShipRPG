@@ -37,3 +37,5 @@ function maintainance() {
         //  Hier muss noch was richtiges rein, nicht nur ein Console.log! Spiel ist zu ende, wenn das hier erfüllt ist.
     };
 };
+
+exports.maintainance = maintainance;
