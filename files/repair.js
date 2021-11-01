@@ -1,8 +1,9 @@
 const PlayerShip = require('./PlayerShip.js');
 
 function fullRepair () {
-    for (const [key, value] of Object.entries(PlayerShip.playerShip.subsystems))
-        value[0] = value[1];
+    for (const [key, value] of Object.entries(PlayerShip.playerShip.subsystems)) {
+        return value[0] = value[1];
+    }
 };
 
 function selfRepair () {
@@ -20,7 +21,6 @@ function selfRepair () {
 function shieldRecharge () {
     PlayerShip.playerShip.shieldValue[0] = PlayerShip.playerShip.shieldValue[1];
 }
-
 exports.fullRepair = fullRepair;
 exports.selfRepair = selfRepair;
 exports.shieldRecharge = shieldRecharge;
