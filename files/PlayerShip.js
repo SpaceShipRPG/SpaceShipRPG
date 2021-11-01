@@ -82,7 +82,7 @@ class Battlestation {
 const laser = new Weapons ("Laser", 5, 8, 4, 2, [50, 50]);
 const torpedos = new Weapons ("Torpedos", 20, 3, 1, 9, [50, 50]);
 
-const playerStartResources = new Resources ([100, 250], [80, 250], [100, 250], [0, 250], [5, 250], [0, 250], [0, 250], [60, 250], [0, 250], [0, 250], [0, 50], [15, Infinity]);
+const playerStartResources = new Resources ([100, 250], [80, 250], [100, 250], [20, 250], [5, 250], [20, 250], [20, 250], [75, 250], [5, 250], [0, 250], [0, 50], [15, Infinity]);
 
 const playerSubsystems = new Subsystems ([100, 100], [125, 125], [90, 90], [100, 100]);
 const playerBattlestation = new Battlestation (laser, torpedos)
