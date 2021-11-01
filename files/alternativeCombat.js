@@ -1,29 +1,11 @@
 // alternatives Fight system
 // muss weiter bearbeitet werden!!
 
-const september = {
-    name : 'september',
-    subsystems : {
-        engine : 10,
-        hull : 20,
-        shield : 20,
-        laser : 5,
-        torpedos : 1 
-    }
-}
+const PlayerShip = require("./PlayerShip");
+const PirateShip = require("./PirateShip");
 
 
-const YMCA = {
-    name : 'YMCA',
-    subsystems : {
-        engine : 10,
-        hull : 20,
-        shield : 20,
-        laser : 5,
-        torpedos : 1 
-    }
-}
-
+//console.log(PlayerShip.playerShip.subsystems)
 
 
 function combat (attackShip, defShip) {
@@ -32,11 +14,9 @@ function combat (attackShip, defShip) {
     
     // attack with torpedos
     
-    const torpedoImpact = attackShip.subsystems.laser // + random
-    const torpedoEvasion = defShip.subsystems.engine  // + random
+    const torpedoImpact = 20 // + random
+    const torpedoEvasion = defShip.subsystems.engine[0]  // + random
     
-    console.log(torpedoImpact)
-    console.log(torpedoEvasion)
     if(torpedoImpact > torpedoEvasion) {
         
         const torpedoSuccess = torpedoImpact - torpedoEvasion
@@ -48,7 +28,7 @@ function combat (attackShip, defShip) {
     
     // attack with laser
     
-    const laserDmg = attackShip.subsystems.laser // + random
+    const laserDmg = 5 // + random
     
  
     //dmg in shield
@@ -56,10 +36,12 @@ function combat (attackShip, defShip) {
         const totalDmg = torpedoDmg + laserDmg
         let overDmg;
 
-        // !! defShip.loseShield = totalDmg !!
+        defShip.subsystems.hull[0] -= totalDmg
 
-        if(totalDmg > defShip.subsystems.shield) {
-            overDmg = totalDmg - defShip.subsystems.shield    
+        console.log(defShip.subsystems.hull[0])
+        console.log(defShip.shieldValue[0])
+        if(totalDmg > defShip.shieldValue[0]) {
+            overDmg = totalDmg - defShip.shieldValue[0]    
         }
         
         // !! defShip.loseHull = overDmg !!
@@ -67,19 +49,21 @@ function combat (attackShip, defShip) {
     
 }
 
+console.log(PlayerShip.playerShip)
 
+combat(PlayerShip.playerShip, PirateShip.pirateShip01)
 
+console.log(PlayerShip.playerShip)
+/*
 function round (player, pirate) {
 
-    console.log(player)
-    console.log(pirate)
 
     if(player.subsystems.hull > 0 && pirate.subsystems.hull > 0) {
                 
         let i = 0;
         i++
 
-        console.log('ROUND ' + i)
+        conso   le.log('ROUND ' + i)
 
         combat(player, pirate)
         combat(pirate, player)
@@ -98,5 +82,5 @@ function round (player, pirate) {
         console.log('you won!')
     }
 }
-
 round(september, YMCA)
+*/
