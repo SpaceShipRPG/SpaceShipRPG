@@ -53,6 +53,7 @@ function play() {
         return newPosition;
     }
     /* function checkPosition() { */
+        PlayerShip.playerShip.resources.energy[0] -= 1;
         inform.infoShip();
         console.log(chalk.cyan.italic('Your move:'));
         let meineBewegung = movement(Number(prompt('')));
