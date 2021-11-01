@@ -32,17 +32,9 @@ class Ship {
         this.resources[resource][0] += quantity
     }
 
-<<<<<<< HEAD
-    // victory points methods
-
-/*     set victoryPoints (vp) {
-        this.victoryPoints += vp
-    } */
-=======
     sell (resource, quantity) {
         this.resources[resource][0] -= quantity
     }
->>>>>>> 60b40cd9b85eab30ba239e12166d11cab99ac731
 };
 //  >>>> Crew als neue Klasse, nicht nur Zahl? Mit Eigenschaften wie Größe, Moral (sinkt wenn Leute sterben >> Wahrscheinlichkeit für Meuterei steigt...). Später vielleicht: Rasse (unterschiedliche Boni und Mali), ChefIngenier : true gibt Bonus bei Reperatur, weitere wichtige CrewMitglieder etc....
 
