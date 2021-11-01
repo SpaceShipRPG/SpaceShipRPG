@@ -16,7 +16,6 @@ const Maintainance = require('./maintainance.js')
 
 
 let shipPosition = [5, 5];
-// playerShip.name = prompt('Please enter your ship name:    ');
 
 function play() {
     
@@ -54,6 +53,7 @@ function play() {
         return newPosition;
     }
     /* function checkPosition() { */
+        inform.infoShip();
         console.log(chalk.cyan.italic('Your move:'));
         let meineBewegung = movement(Number(prompt('')));
         let meineBewegungX;
@@ -63,7 +63,7 @@ function play() {
             meineBewegungY = meineBewegung[1];
         } 
         if (!gameState.isPlaying) {
-            // Spieler hat das spiel abgebrochen.
+            // User canceled the game.
             return;
         }
     
@@ -190,6 +190,9 @@ function play() {
                             inform.informCrew();
                             levelBack = false;
                         } else if (inputUser === 4) {
+                            inform.informAll();
+                            levelBack = false;
+                        } else if (inputUser === 5) {
                             tradeState.stopTrading();
                             Maintainance.maintainance();
                             Repair.selfRepair();
@@ -226,6 +229,9 @@ function play() {
                             if (elem.name === 'Graveyard') {Mine.mine("specialTech")};
                             Danger.accident(elem.name);
                         } else if (inputUser === 2) {
+                            inform.informAll();
+                            levelBack = false;
+                        } else if (inputUser === 3) {
                             tradeState.stopTrading();
                             Maintainance.maintainance();
                             Repair.selfRepair();
@@ -328,6 +334,9 @@ function play() {
                             console.log(chalk.green.bold('Your ship is fully repaired!'));
                             levelBack = false;
                         } else if (inputUser === 4) {
+                            inform.informAll();
+                            levelBack = false;
+                        } else if (inputUser === 5) {
                             tradeState.stopTrading();
                             Maintainance.maintainance();
                             Repair.selfRepair();
@@ -345,6 +354,9 @@ function play() {
                 if (inputUser === 1) {
                     fight.shipAttack(PirateShip.randomPirate(), "laser");
                 } else if (inputUser === 2) {
+                    inform.informAll();
+                    levelBack = false;
+                } else if (inputUser === 3) {
                     Maintainance.maintainance();
                     Repair.selfRepair();
                     Repair.shieldRecharge();
@@ -383,7 +395,8 @@ function play() {
                 ***     Press 1 for purchasing.           \r\n\
                 ***     Press 2 for selling.              \r\n\
                 ***     Press 3 hire crew members.        \r\n\
-                ***     Press 4 to continue your journey. \r\n\
+                ***     Press 4 to see the cargo.         \r\n\
+                ***     Press 5 to continue your journey. \r\n\
                 ******************************************\r\n\
                 `);
     
@@ -394,7 +407,8 @@ function play() {
                 *** Welcome to ${params}.                 \r\n\
                 *** You have the following options:       \r\n\
                 ***     Press 1 for mining for resources. \r\n\
-                ***     Press 2 to continue your journey. \r\n\
+                ***     Press 2 to see the cargo.         \r\n\
+                ***     Press 3 to continue your journey. \r\n\
                 ***             D A N G E R!              \r\n\
                 ******************************************\r\n\
                 `);
@@ -406,7 +420,8 @@ function play() {
                 *** You are facing the ${params}.         \r\n\
                 *** You have the following options:       \r\n\
                 ***     Press 1 for fighting.             \r\n\
-                ***     Press 2 to continue your journey. \r\n\
+                ***     Press 2 to see the cargo.         \r\n\
+                ***     Press 3 to continue your journey. \r\n\
                 ***             D A N G E R!              \r\n\
                 ******************************************\r\n\
                 `);
@@ -428,7 +443,8 @@ function play() {
                 ***     Press 1 for purchasing.           \r\n\
                 ***     Press 2 for selling.              \r\n\
                 ***     Press 3 to repair your ship.      \r\n\
-                ***     Press 4 to continue your journey  \r\n\
+                ***     Press 4 to see the cargo.         \r\n\
+                ***     Press 5 to continue your journey  \r\n\
                 ******************************************\r\n\
                 `);
             } else if (params === 'Home') {
@@ -440,7 +456,8 @@ function play() {
                 ***     Press 1 to deliver resources.     \r\n\
                 ***     Press 2 to recharge.              \r\n\
                 ***     Press 3 hire crew members.        \r\n\
-                ***     Press 4 to continue your journey  \r\n\
+                ***     Press 4 to see the cargo.         \r\n\
+                ***     Press 5 to continue your journey  \r\n\
                 ******************************************\r\n\
                 `);
             }
