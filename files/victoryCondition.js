@@ -12,6 +12,8 @@ function victoryCondition (locations) {
 
     if(i ===locations.length) {
         console.log('you won')
+        // wie viele Punkte
+        // break
     } else {
         console.log('not won yet')
     }
