@@ -4,29 +4,29 @@ const ship = PlayerShip.playerShip;
 
 
 function maintainance() {
-    ship.resources.oxygen[0] -= Math.floor(ship.crew[0] / 10);
-        if (ship.resources.oxygen[0] <= 0 && ship.crew[0] <= 10) {
+    ship.resources.oxygen[0] -= Math.floor(ship.crew[0] / 50);
+        if (ship.resources.oxygen[0] <= 0 && ship.crew[0] <= 50) {
             ship.crew[0] -= 3;
             ship.resources.oxygen[0] = 0;
-        } else if (ship.resources.oxygen[0] <= 0 && ship.crew[0] > 10) {
+        } else if (ship.resources.oxygen[0] <= 0 && ship.crew[0] > 50) {
             ship.crew[0] -= Math.floor(-(ship.resources.oxygen[0]) * 3);
             ship.resources.oxygen[0] = 0;
         };
 
-    ship.resources.water[0] -= Math.floor(ship.crew[0] / 10);
-        if (ship.resources.water[0] <= 0 && ship.crew[0] <= 10) {
+    ship.resources.water[0] -= Math.floor(ship.crew[0] / 50);
+        if (ship.resources.water[0] <= 0 && ship.crew[0] <= 50) {
             ship.crew[0] -= 3;
             ship.resources.water[0] = 0;
-        } else if (ship.resources.water[0] <= 0 && ship.crew[0] > 10) {
+        } else if (ship.resources.water[0] <= 0 && ship.crew[0] > 50) {
             ship.crew[0] -= Math.floor(-(ship.resources.water[0]) * 3);
             ship.resources.water[0] = 0;
         };
 
-    ship.resources.food[0] -= Math.floor(ship.crew[0] / 10);
-        if (ship.resources.food[0] <= 0 && ship.crew[0] <= 10) {
+    ship.resources.food[0] -= Math.floor(ship.crew[0] / 50);
+        if (ship.resources.food[0] <= 0 && ship.crew[0] <= 50) {
             ship.crew[0] -= 3;
             ship.resources.food[0] = 0;
-        } else if (ship.resources.food[0] <= 0 && ship.crew[0] > 10) {
+        } else if (ship.resources.food[0] <= 0 && ship.crew[0] > 50) {
             ship.crew[0] -= Math.floor(-(ship.resources.food[0]) * 3);
             ship.resources.food[0] = 0;
         };
