@@ -36,7 +36,14 @@ function combat(attackShip, defShip) {
     const totalDmg = torpedoDmg + laserDmg
     let overDmg;
 
-    defShip.subsystems.hull[0] -= totalDmg
+    if (defShip.shieldValue[0] > 0) {
+        defShip.shieldValue[0] -= totalDmg;
+    } else {
+        defShip.subsystems.hull[0] -= totalDmg
+    }
+
+    defShip.shieldValue[0] = defShip.shieldValue[0] < 0 ? 0 : defShip.shieldValue[0];  
+    defShip.subsystems.hull[0] = defShip.subsystems.hull[0] < 0 ? 0 : defShip.subsystems.hull[0];  
 
     console.log(`${defShip.name}, hull: ${defShip.subsystems.hull[0]}, shield: ${defShip.shieldValue[0]}`)
     if (totalDmg > defShip.shieldValue[0]) {
@@ -62,8 +69,8 @@ function round(player, pirate) {
     for (let i = 1; player.subsystems.hull[0] > 0 | pirate.subsystems.hull[0] > 0; i++) {
 
         console.log('ROUND ' + i)
-        combat(player, pirate)
         combat(pirate, player)
+        combat(player, pirate)
 
         if (player.subsystems.hull[0] <= 0) {
             console.log('RIP');
@@ -79,14 +86,14 @@ function round(player, pirate) {
         //     console.log('you won!')
     }
 };
-round(PlayerShip.playerShip, PirateShip.pirateShip01);
+// round(PlayerShip.playerShip, PirateShip.pirateShip01);
 // console.log(PirateShip.pirateShip01);
 // console.log(PlayerShip.playerShip);
 
 
 
 
-
+exports.round = round;
 
 
 

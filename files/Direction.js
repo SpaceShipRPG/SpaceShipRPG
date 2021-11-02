@@ -357,7 +357,7 @@ function play() {
                 messageObject(elem.name);
                 const inputUser = input();
                 if (inputUser === 1) {
-                    fight.shipAttack(PirateShip.randomPirate(), "laser");
+                    fight.round(PlayerShip.playerShip, PirateShip.randomPirate());
                 } else if (inputUser === 2) {
                     inform.informAll();
                     levelBack = false;
