@@ -53,6 +53,9 @@ function play() {
         return newPosition;
     }
     /* function checkPosition() { */
+        Maintainance.maintainance();
+        Repair.selfRepair();
+        Repair.shieldRecharge();
         inform.infoShip();
         console.log(chalk.cyan.italic('Your move:'));
         movementCost.movCost();
@@ -195,9 +198,6 @@ function play() {
                             levelBack = false;
                         } else if (inputUser === 5) {
                             tradeState.stopTrading();
-                            Maintainance.maintainance();
-                            Repair.selfRepair();
-                            Repair.shieldRecharge();
                             return;
                         }
                     }
@@ -238,9 +238,6 @@ function play() {
                             levelBack = false;
                         } else if (inputUser === 3) {
                             tradeState.stopTrading();
-                            Maintainance.maintainance();
-                            Repair.selfRepair();
-                            Repair.shieldRecharge();
                             return;
                         } else {
                             console.log('Please enter a number between 1 and 2');
@@ -343,9 +340,6 @@ function play() {
                             levelBack = false;
                         } else if (inputUser === 5) {
                             tradeState.stopTrading();
-                            Maintainance.maintainance();
-                            Repair.selfRepair();
-                            Repair.shieldRecharge();
                             return;
                         }
                     }
@@ -362,9 +356,6 @@ function play() {
                     inform.informAll();
                     levelBack = false;
                 } else if (inputUser === 3) {
-                    Maintainance.maintainance();
-                    Repair.selfRepair();
-                    Repair.shieldRecharge();
                     return;
                 } else {
                     console.log('Please enter a number between 1 and 2');
@@ -378,9 +369,6 @@ function play() {
                 shipPosition[0] = wormHoleRandom[0];
                 shipPosition[1] = wormHoleRandom[1];
                 console.log(shipPosition);
-                Maintainance.maintainance();
-                Repair.selfRepair();
-                Repair.shieldRecharge();
             }
             clash = true; 
             }
