@@ -14,6 +14,8 @@ const victoryPoints = require('./victoryPoints.js')
 const inform = require('./Inform.js')
 const Maintainance = require('./maintainance.js')
 const movementCost = require('./MovementCost.js')
+const VisitedLocations = require('./visitedLocations.js');
+const victoryCondition = require('./visitedLocations.js');
 
 let shipPosition = [11, 11];
 console.log(chalk.bold.red.bgYellow(`Your are at home and your current position is [x: ${shipPosition[0]} , y: ${shipPosition[1]}]`));
@@ -485,6 +487,7 @@ const gameState = {
 }
 while (gameState.isPlaying) {
     play();
+    victoryCondition();
 }
 
 exports.play = play;
