@@ -27,11 +27,12 @@ const pirateShip05 = new PlayerShip.Ship ("Suicide Mission", [randomNr(40, 55), 
 function randomPirate() {
     let random = randomNr(1, 100);
     let pirate;
-    if (random < 10) {pirate = pirateShip01};
-    if (random < 25) {pirate = pirateShip02};
-    if (random < 45) {pirate = pirateShip03};
-    if (random < 80) {pirate = pirateShip04};
+
     if (random <= 100) {pirate = pirateShip05};
+    if (random < 80) {pirate = pirateShip04};
+    if (random < 45) {pirate = pirateShip03};
+    if (random < 25) {pirate = pirateShip02};
+    if (random <= 10) {pirate = pirateShip01};
 
     // Falls Piratenschiff schon kaputt ist, wird es vor dem Spawnen repariert:
     pirate.shieldValue[0] = pirate.shieldValue[0] <= 0 ? pirate.shieldValue[1] : pirate.shieldValue[0];  
