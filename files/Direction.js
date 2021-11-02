@@ -15,7 +15,7 @@ const inform = require('./Inform.js')
 const Maintainance = require('./maintainance.js')
 const movementCost = require('./MovementCost.js')
 
-let shipPosition = [4, 9];
+let shipPosition = [11, 11];
 console.log(chalk.bold.red.bgYellow(`Your are at home and your current position is [x: ${shipPosition[0]} , y: ${shipPosition[1]}]`));
 
 function play() {
@@ -53,6 +53,9 @@ function play() {
         return newPosition;
     }
     /* function checkPosition() { */
+        Maintainance.maintainance();
+        Repair.selfRepair();
+        Repair.shieldRecharge();
         inform.infoShip();
         console.log(chalk.cyan.italic('Your move:'));
         movementCost.movCost();
@@ -80,7 +83,7 @@ function play() {
         for (let elem of staticMap) {
             if (elem.x === shipPosition[0] && elem.y === shipPosition[1]) {
             console.log(`Your current position is [x: ${shipPosition[0]}, y: ${shipPosition[1]}].`);
-            
+            tradeState.isTrade = true;
             if (elem.name === 'Home') {
                 messageObject(elem.name);
                 console.log(chalk.green.bold('Welcome back home!'));
@@ -195,9 +198,6 @@ function play() {
                             levelBack = false;
                         } else if (inputUser === 5) {
                             tradeState.stopTrading();
-                            Maintainance.maintainance();
-                            Repair.selfRepair();
-                            Repair.shieldRecharge();
                             return;
                         }
                     }
@@ -238,9 +238,6 @@ function play() {
                             levelBack = false;
                         } else if (inputUser === 3) {
                             tradeState.stopTrading();
-                            Maintainance.maintainance();
-                            Repair.selfRepair();
-                            Repair.shieldRecharge();
                             return;
                         } else {
                             console.log('Please enter a number between 1 and 2');
@@ -343,9 +340,6 @@ function play() {
                             levelBack = false;
                         } else if (inputUser === 5) {
                             tradeState.stopTrading();
-                            Maintainance.maintainance();
-                            Repair.selfRepair();
-                            Repair.shieldRecharge();
                             return;
                         }
                     }
@@ -362,9 +356,6 @@ function play() {
                     inform.informAll();
                     levelBack = false;
                 } else if (inputUser === 3) {
-                    Maintainance.maintainance();
-                    Repair.selfRepair();
-                    Repair.shieldRecharge();
                     return;
                 } else {
                     console.log('Please enter a number between 1 and 2');
@@ -378,9 +369,6 @@ function play() {
                 shipPosition[0] = wormHoleRandom[0];
                 shipPosition[1] = wormHoleRandom[1];
                 console.log(shipPosition);
-                Maintainance.maintainance();
-                Repair.selfRepair();
-                Repair.shieldRecharge();
             }
             clash = true; 
             }
@@ -453,8 +441,13 @@ function play() {
                 ******************************************\r\n\
                 `);
             } else if (params === 'Home') {
+                    console.log(`\
+                ******************************************\r\n\
+                *** Welcome to ${params}.                 \r\n\
+                ******************************************\r\n\
+                `);
     
-                console.log(`\
+/*                 console.log(`\
                 ******************************************\r\n\
                 *** Welcome to ${params}.                 \r\n\
                 *** You have the following options:       \r\n\
@@ -464,7 +457,7 @@ function play() {
                 ***     Press 4 to see the cargo.         \r\n\
                 ***     Press 5 to continue your journey  \r\n\
                 ******************************************\r\n\
-                `);
+                `); */
             }
         }
     
