@@ -13,13 +13,13 @@ const Mine = require('./Mine.js');
 const victoryPoints = require('./victoryPoints.js')
 const inform = require('./Inform.js')
 const Maintainance = require('./maintainance.js')
+const movementCost = require('./MovementCost.js')
 
-
-let shipPosition = [5, 5];
+let shipPosition = [4, 9];
+console.log(chalk.bold.red.bgYellow(`Your are at home and your current position is [x: ${shipPosition[0]} , y: ${shipPosition[1]}]`));
 
 function play() {
     
-    console.log(chalk.bold.red.bgYellow(`Your are at home and your current position is [x: ${shipPosition[0]} , y: ${shipPosition[1]}]`));
     function movement (order) {
         const newPosition = [];
         if(order === 8) {
@@ -53,9 +53,9 @@ function play() {
         return newPosition;
     }
     /* function checkPosition() { */
-        PlayerShip.playerShip.resources.energy[0] -= 1;
         inform.infoShip();
         console.log(chalk.cyan.italic('Your move:'));
+        movementCost.movCost();
         let meineBewegung = movement(Number(prompt('')));
         let meineBewegungX;
         let meineBewegungY;
