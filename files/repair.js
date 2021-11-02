@@ -11,8 +11,9 @@ function fullRepair () {
 
 function selfRepair () {
     let notification = [];
+    let repairCheck = 0;
     for (const [key, value] of Object.entries(PlayerShip.playerShip.subsystems)) {
-        if (value[1] - value[0] > 0) {
+        if (value[0] < value[1]) {
             let damage = value[1] - value[0];
             let factor = 0;
                 if (PlayerShip.playerShip.crew[0] <= 50) {factor = 0.01};
@@ -23,16 +24,17 @@ function selfRepair () {
                 if (PlayerShip.playerShip.crew[0] >= 400) {factor = 0.05};
             value[0] += Math.round(damage * factor);
             notification.push(`${key} ${Math.round(damage * factor)}`);
+            repairCheck = Math.round(damage * factor);
         };
     };
-    if (notification.length > 0) {
+    if (notification.length > 0 && repairCheck > 0) {
         console.log(`Your damage crew did emergency repairs:     ${notification.join(",  ")}.`);
     };
 };
 
 
 function shieldRecharge () {
-    if (PlayerShip.playerShip.shieldValue[0] !== PlayerShip.playerShip.shieldValue[1]) {
+    if (PlayerShip.playerShip.shieldValue[0] < PlayerShip.playerShip.shieldValue[1]) {
         PlayerShip.playerShip.shieldValue[0] = PlayerShip.playerShip.shieldValue[1];
         console.log("Your shields are fully recharged.");
     };
