@@ -105,6 +105,7 @@ function play() {
             }
             if (elem.name === 'Vulkan' || elem.name === 'Kronos' || elem.name === 'Minerva') {
                 elem.visited = true;
+                commerce.oxygenRefill();
                 //messageObject(elem.name);
                 //const inputUser = input();
                 while (tradeState.isTrade) {
@@ -250,6 +251,7 @@ function play() {
     
             if (elem.name === 'Space Station') {
                 elem.visited = true;
+                commerce.oxygenRefill();
 
                 while (tradeState.isTrade) {
                     messageObject(elem.name);
