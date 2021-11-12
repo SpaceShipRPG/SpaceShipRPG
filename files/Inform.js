@@ -45,6 +45,11 @@ function informAll() {
             Available: abr.resources.specialTech[0],
             'Storage capacity': abr.resources.specialTech[1]
         },
+        'Ship-Parts': {
+            Available: abr.resources.shipParts[0],
+            'Storage capacity': abr.resources.shipParts[1]
+        },
+        // Besser eine Extra-Tabelle für die Subsysteme? Die zwei Spalten sollten dann auch anders heißen. Vielleicht "current state" und "Max. Structur Points"?
         Hull: {
             Available: abr.subsystems.hull[0],
             'Storage capacity': abr.subsystems.hull[1]
@@ -52,7 +57,15 @@ function informAll() {
         'Life support system': {
             Available: abr.subsystems.lifeSupport[0],
             'Storage capacity': abr.subsystems.lifeSupport[1]
-        } 
+        },
+        Engine: {
+            Available: abr.subsystems.engine[0],
+            'Storage capacity': abr.subsystems.engine[1]
+        },
+        'Shield Generator': {
+            Available: abr.subsystems.shieldGenerator[0],
+            'Storage capacity': abr.subsystems.shieldGenerator[1]
+        }
     }
     console.table(infAll)
 }

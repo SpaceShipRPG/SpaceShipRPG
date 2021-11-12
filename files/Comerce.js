@@ -8,7 +8,7 @@ function sell(what, quantity, source) {
     PlayerShip.playerShip.buy("credits", quantity);
     // hier werden die Resourcen der Location hinzugefügt
     source.resources[what][0] += quantity;
-}
+};
 
 function buy (what, quantity, source) {
     // Check ob mehr gekauft werden soll, als in der Lokation vorhanden ist.
@@ -23,6 +23,13 @@ function buy (what, quantity, source) {
     PlayerShip.playerShip.sell("credits", quantity);
     // hier werden die gekauften Resourcen der Location abgezogen:
     source.resources[what][0] -= quantity;
-}
+};
+
+function oxygenRefill() {
+    PlayerShip.playerShip.resources.oxygen[0] = PlayerShip.playerShip.resources.oxygen[1];
+    console.log("Dear visitor: As a sign of friendship, your ships oxygen tanks where completely refilled for free!");
+};
+
 exports.sell = sell;
 exports.buy = buy;
+exports.oxygenRefill = oxygenRefill;

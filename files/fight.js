@@ -42,10 +42,14 @@ function combat(attackShip, defShip) {
         defShip.subsystems.hull[0] -= totalDmg
     }
 
-    defShip.shieldValue[0] = defShip.shieldValue[0] < 0 ? 0 : defShip.shieldValue[0];  
-    defShip.subsystems.hull[0] = defShip.subsystems.hull[0] < 0 ? 0 : defShip.subsystems.hull[0];  
+    defShip.shieldValue[0] = defShip.shieldValue[0] < 0 ? 0 : defShip.shieldValue[0];
+    defShip.subsystems.hull[0] = defShip.subsystems.hull[0] < 0 ? 0 : defShip.subsystems.hull[0];
 
-    console.log(`${defShip.name}, hull: ${defShip.subsystems.hull[0]}, shield: ${defShip.shieldValue[0]}`)
+    // setTimeout(function () {
+    //     console.log(`${defShip.name}, hull: ${defShip.subsystems.hull[0]}, shield: ${defShip.shieldValue[0]}`);
+    // }, 400);
+
+    console.log(`${defShip.name}, hull: ${defShip.subsystems.hull[0]}, shield: ${defShip.shieldValue[0]}`);
     if (totalDmg > defShip.shieldValue[0]) {
         overDmg = totalDmg - defShip.shieldValue[0]
     }
@@ -63,11 +67,36 @@ function combat(attackShip, defShip) {
 
 
 
+// function asyncTimeout(milliseconds) {
+//     const promise = new Promise((resolve) => {
+//         setTimeout(() => resolve(), milliseconds);
+//     });
+//     return promise;
+// };
 
 
 function round(player, pirate) {
     for (let i = 1; player.subsystems.hull[0] > 0 | pirate.subsystems.hull[0] > 0; i++) {
 
+        // asyncTimeout(500)
+        //     .then(() => console.log('ROUND ' + i))
+        //     .then(() => asyncTimeout(500))
+        //     .then(() => combat(pirate, player))
+        //     .then(() => asyncTimeout(500))
+        //     .then(() => combat(player, pirate));
+
+
+        // setTimeout(function () {
+        //     console.log('ROUND ' + i);
+        // }, 400);
+        // setTimeout(function () {
+        //     combat(pirate, player);
+        // }, 400);
+        // setTimeout(function () {
+        //     combat(player, pirate);
+        // }, 400);
+
+        
         console.log('ROUND ' + i)
         combat(pirate, player)
         combat(player, pirate)

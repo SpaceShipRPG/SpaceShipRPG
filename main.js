@@ -7,10 +7,10 @@ console.clear();
   console.log(chalk.black.bgGreen.bold(`\
   *****************************************************************************************************\r\n\
                                                                                                        \r\n\
-            Welcome to Space Ship                                                                      \r\n\
+            Welcome to Space Ship RPG                                                                  \r\n\
                                                                                                        \r\n\
               Introduction:                                                                            \r\n\
-              Space ship is a space game that is played on a square of 21 rows and 21 columns.         \r\n\
+              Space Ship RPG is a space game that is played on a grid of 21 rows and 21 columns.       \r\n\
               Your home is located at [x: 11, y: 11] where you start your journey.                     \r\n\
               You can only move one step to the left, right, upward and downward:                      \r\n\
                 Press 6 to move to the right,                                                          \r\n\
